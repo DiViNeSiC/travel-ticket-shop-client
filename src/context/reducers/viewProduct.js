@@ -13,7 +13,6 @@ import { HIDE_SEGMENT } from '../../constants/hideSegment'
 import limitFunc from '../../helpers/product/limitProduct'
 import searchFunc from '../../helpers/product/searchProduct'
 
-
 export default (state, { payload, type }) => {
     switch(type) {
         case HIDE_SEGMENT: {
@@ -45,7 +44,7 @@ export default (state, { payload, type }) => {
                     baseProducts: allProducts,
                     baseLength: allProducts.length,
                     products: limitFunc(
-                        allProducts, state.allProducts.limit
+                        allProducts, INITIAL_LIMIT
                     )
                 }
             }
@@ -66,27 +65,28 @@ export default (state, { payload, type }) => {
         case INCREASE_LIMIT: {
             const {
                 baseProducts, 
-                searchedProducts, 
+                allSearchedProducts, 
                 limit, 
                 isSearching 
-            } = state
+            } = state.allProducts
 
-            const products = isSearching ? searchedProducts : baseProducts
+            const products = isSearching ? allSearchedProducts : baseProducts
 
             return {
                 ...state,
                 allProducts: {
                     ...state.allProducts,
                     limit: limit + INITIAL_LIMIT_INCREASE,
-                    products: limitFunc(products, state.allProducts.limit)
+                    searchedProducts: limitFunc(products, limit + INITIAL_LIMIT_INCREASE),
+                    products: limitFunc(products, limit + INITIAL_LIMIT_INCREASE),
                 }
             }
         }
 
         case SEARCH_PRODUCT: {
-            const { baseProducts } = state
+            const { baseProducts } = state.allProducts
             const { title, from, to, continent } = payload
-            const searchedProducts = searchFunc(baseProducts, payload)
+            const searchProducts = searchFunc(baseProducts, payload)
 
             const isSearching = 
                 title?.length > 0 ||
@@ -99,10 +99,11 @@ export default (state, { payload, type }) => {
                 allProducts: {
                     ...state.allProducts,
                     isSearching,
-                    searchedProducts,
+                    allSearchedProducts: searchProducts,
+                    searchedProducts: limitFunc(searchProducts, INITIAL_LIMIT),
+                    products: limitFunc(baseProducts, INITIAL_LIMIT),
                     limit: INITIAL_LIMIT,
-                    products: limitFunc(searchedProducts, state.limit),
-                    searchedProductsLength: searchedProducts.length
+                    searchedProductsLength: searchProducts.length
                 }
             }
         }

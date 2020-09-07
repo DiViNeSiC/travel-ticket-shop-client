@@ -1,6 +1,7 @@
 export default (products, query) => {
     let searchedArray = products != null ? products : null
     const { title, from, to, continent } = query
+    
     try {
         if (title) {
             searchedArray = searchedArray.filter(product => (

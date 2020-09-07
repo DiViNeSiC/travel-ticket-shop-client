@@ -1,4 +1,4 @@
-import axios from '../../../helpers/axios'
+import axios from '../../../helpers/axios/axiosInstance'
 import { 
     GET_ALL_PRODUCTS_LOADING,
     GET_ALL_PRODUCTS_SUCCESS, 
@@ -11,7 +11,7 @@ export default (isIndex) => async (productDispatch) => {
         productDispatch({ type: GET_ALL_PRODUCTS_LOADING })
         
         const res = await axios.get(`${url}`)
-        
+
         productDispatch({ 
             type: GET_ALL_PRODUCTS_SUCCESS,
             payload: res.data 

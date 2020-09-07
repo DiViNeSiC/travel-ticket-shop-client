@@ -1,30 +1,34 @@
 export default [
     {
         value: 0,
-        text: 'Africa'
+        text: 'No Filter'
     },
     {
         value: 1,
-        text: 'Asia'
+        text: 'Africa'
     },
     {
         value: 2,
-        text: 'North America'
+        text: 'Asia'
     },
     {
         value: 3,
-        text: 'South America'
+        text: 'North America'
     },
     {
         value: 4,
-        text: 'Europe'
+        text: 'South America'
     },
     {
         value: 5,
-        text:  'Oceania'
+        text: 'Europe'
     },
     {
         value: 6,
+        text:  'Oceania'
+    },
+    {
+        value: 7,
         text:  'Middle East'
     }
 ]

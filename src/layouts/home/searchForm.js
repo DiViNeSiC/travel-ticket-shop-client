@@ -1,6 +1,6 @@
 import React from 'react'
 import continents from '../../constants/continents'
-import { Form, Select, Input } from 'semantic-ui-react'
+import { Form, Input } from 'semantic-ui-react'
 
 export default ({ onChange }) => {
     return (
@@ -43,12 +43,20 @@ export default ({ onChange }) => {
             </Form.Group>
             <Form.Group>
                 <label htmlFor="continent">Continent</label>
-                <Select
+                <select
                     id="continent"
                     name="continent"
                     onChange={onChange}
-                    options={continents}
-                />
+                >
+                    {continents.map(continent => (
+                        <option
+                            key={continent.value} 
+                            value={continent.value}
+                        >
+                            {continent.text}
+                        </option>
+                    ))}
+                </select>
             </Form.Group>
         </Form>
     )

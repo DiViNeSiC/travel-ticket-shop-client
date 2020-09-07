@@ -5,36 +5,42 @@ import SegmentError from '../segment/segment'
 import SearchForm from './searchForm'
 
 export default ({ 
-    searchHook,
-    productsHook: {
-        products,
-        isSearching,
+    search,
+    products: {
+        handleIncrease,
         loading,
         error,
-        productDispatch,
-        length,
-        segmentShow
+        limit,
+        resultLength,
+        resultProducts,
+        segmentShow,
+        allProducts,
+        viewProductDispatch
     }
 }) => {
     return (
         <>
-            <SearchForm {...searchHook} />
+            <SearchForm {...search} />
             <Segment>
-                <Dimmer active={loading} inverted>
-                    <Loader inverted>Loading</Loader>
+                <Dimmer style={{ position: 'fixed' }} active={loading} inverted>
+                    <Loader>Loading Products...</Loader>
                 </Dimmer>
                 <SegmentError 
-                    dispatch={productDispatch} 
+                    dispatch={viewProductDispatch} 
                     message={error} 
                     type={'error'} 
                     show={segmentShow} 
                 />
                 {!loading && 
-                    <Products 
-                        length={length} 
-                        products={products} 
-                        isSearching={isSearching} 
-                    />
+                    <div>
+                        <Products 
+                            length={resultLength} 
+                            products={resultProducts} 
+                            allProducts={allProducts}
+                            handleIncrease={handleIncrease}
+                            limit={limit}
+                        />
+                    </div>
                 }
             </Segment>
         </>

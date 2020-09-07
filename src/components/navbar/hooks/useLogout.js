@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react"
 import { GlobalContext } from '../../../context/contextProvider/provider'
 import logout from '../../../context/actions/auth/logout/logout'
-import { useLocation } from "react-router-dom"
+import { useLocation, useHistory } from "react-router-dom"
 import userAuth from '../../../utils/authenticate/userAuth'
 
 export default () => {
@@ -18,6 +18,7 @@ export default () => {
     } = useContext(GlobalContext)
 
     const { pathname } = useLocation()
+    const history = useHistory()
     const isAuth = userAuth()
 
     const onClick = () => {
@@ -31,6 +32,7 @@ export default () => {
     const deleteToken = () => {
         if (success) {
             localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
+            history.push('/login')
         }
     }
 
