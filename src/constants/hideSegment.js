@@ -1,0 +1,1 @@
+export const HIDE_SEGMENT = 'HIDE_SEGMENT'
