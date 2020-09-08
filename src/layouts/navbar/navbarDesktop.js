@@ -60,8 +60,8 @@ export default ({ handleLogout, loading, pathName, isAuth }) => (
                 </Menu.Item>
             }
             {isAuth &&
-                <Menu.Item fitted>
-                    <Button onClick={handleLogout} loading={loading} negative fluid>
+                <Menu.Item>
+                    <Button onClick={handleLogout} loading={loading} negative>
                         <div>
                             <Icon className="log out" />
                             Log Out

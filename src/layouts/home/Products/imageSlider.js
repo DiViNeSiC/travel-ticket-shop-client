@@ -22,12 +22,12 @@ export default ({ images }) => {
     }
         
     return (
-        <Slider {...settings} > 
-            { images.map((image, index) => 
-                <div key={index} >
+        <Slider className="product-slider" {...settings} > 
+            {images.map((image, index) => 
+                <div className="product-image-container" key={index} >
                     <Image
                         src={`${backEndUrl}${image}`}
-                        style={{ width: '100%', maxHeight: '185px' }}
+                        className="product-image"
                         alt="Product"
                     />
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Segment, Header, Icon, Button } from 'semantic-ui-react'
+import { Card, Segment, Header, Icon } from 'semantic-ui-react'
 import ImageSlider from './imageSlider'
 import Continent from './continent'
 
@@ -12,33 +12,32 @@ export default ({
     handleIncrease 
 }) => {
     return (
-        <div> 
+        <>
             {allProducts.length > 0 ? 
-                <div>
-                    <div>
+                <>
+                    <div className="length">
                         {length}
                     </div>
-                    {products.map(product => {
-                        const { title, price, continent, imagePaths, id } = product
-                        return (
-                            <Card style={{ width: '350px', height: '300px' }}>
-                                <Link to={`/products/${id}`}>
-                                    <ImageSlider images={imagePaths} />
-                                </Link>
-                                <Card.Header>
-                                    {title}
-                                </Card.Header>
-                                <Continent continent={continent} />
-                                <Card.Description>
-                                    ${price}
-                                </Card.Description>
-                            </Card>
-                        )
-                    })}
-                    {allProducts.length !== limit &&
-                        <Button onClick={handleIncrease}>Show More...</Button>
-                    }
-                </div> : 
+                    <div className="products-grid">
+                        {products.map((product) => {
+                            const { title, price, continent, imagePaths, _id } = product
+                            return (
+                                <Card key={_id} className="product-card">
+                                    <Link className="product-link" to={`/products/${_id}`}>
+                                        <ImageSlider images={imagePaths} />
+                                    </Link>
+                                    <Card.Header className="header">
+                                        {title}
+                                    </Card.Header>
+                                    <Continent continent={continent} />
+                                    <Card.Description className="price">
+                                        ${price}
+                                    </Card.Description>
+                                </Card>
+                            )
+                        })}
+                    </div> 
+                </> : 
                 <Segment placeholder>
                     <Header icon>
                         <Icon name='times circle outline' />
@@ -46,6 +45,6 @@ export default ({
                     </Header>
                 </Segment>
             }
-        </div>
+        </>
     )
 }

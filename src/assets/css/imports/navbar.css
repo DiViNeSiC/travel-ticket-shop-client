@@ -1,3 +1,8 @@
+.nav-header {
+    margin-left: -6px !important;
+    font-size: 1.4rem !important;
+}
+
 .mobile-nav-dropdown-btn {
     background: none !important;
     color: blue !important;
@@ -19,4 +24,26 @@
 
 .nav-dashboard-btn:hover {
     background-color: #dedeeb !important;
+}
+
+@media all and (max-width: 440px) {
+    .responsive-sign-in {
+        font-size: .7rem !important;
+    }
+
+    .responsive-signup { 
+        font-size: .7rem !important;
+    }
+
+    .nav-header {
+        margin-left: -12px !important;
+        font-size: .95rem !important;
+    }
+}
+
+@media all and (max-width: 360px) {
+    .responsive-logout {
+        font-size: .8rem !important;
+        width: 100px;
+    }
 }

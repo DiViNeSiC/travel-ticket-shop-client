@@ -6,7 +6,7 @@ export default ({ handleLogout, loading, isAuth, pathName }) => (
     <Menu fixed="top">
         <Menu.Item>
             <Link to="/">
-                <h3><Icon className="plane" /> Travel Shop</h3>
+                <h3 className="nav-header"><Icon className="plane" /> Travel Shop</h3>
             </Link>       
         </Menu.Item>
         {isAuth && 
@@ -56,7 +56,7 @@ export default ({ handleLogout, loading, isAuth, pathName }) => (
         <Menu.Menu position="right">
             {!isAuth && pathName !== '/login' &&
                 <Menu.Item>
-                    <Button primary as={Link} to="/login">
+                    <Button className="responsive-sign-in" primary as={Link} to="/login">
                         <div>
                             <Icon className="sign in" />
                             Sign In!
@@ -66,7 +66,7 @@ export default ({ handleLogout, loading, isAuth, pathName }) => (
             }
             {!isAuth && pathName !== '/register' &&
                 <Menu.Item>
-                    <Button positive as={Link} to="/register">
+                    <Button className="responsive-signup" positive as={Link} to="/register">
                         <div>
                             <Icon className="signup" />
                             Sign Up!
@@ -75,8 +75,8 @@ export default ({ handleLogout, loading, isAuth, pathName }) => (
                 </Menu.Item>
             }
             {isAuth &&
-                <Menu.Item fitted>
-                    <Button onClick={handleLogout} loading={loading} negative>    
+                <Menu.Item >
+                    <Button className="responsive-logout" onClick={handleLogout} loading={loading} negative>    
                         <Icon className="log out" />
                         LogOut
                     </Button>

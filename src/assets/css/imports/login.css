@@ -14,15 +14,7 @@
     width: 100% !important;
 }
 
-
-@media all and (max-width: 300px) {    
-    .login-container {
-        margin-right: -30px !important;
-    }
-}
-
-@media all and (max-width: 235px) {    
-    .login-container {
-        margin-right: -80px !important;
-    }
+.error-login {
+    border: 3px solid rgba(214, 1, 1, 0.5);
+    background-color: rgba(255, 0, 0, 0.103);
 }

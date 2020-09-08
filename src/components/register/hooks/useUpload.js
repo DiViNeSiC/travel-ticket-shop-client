@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import defaultImage from '../../../assets/images/defaultImage.png'
+import defaultImage from '../../../assets/images/default-profile-Image.png'
 
 export default () => {
     const [selectedFile, setSelectedFile] = useState()

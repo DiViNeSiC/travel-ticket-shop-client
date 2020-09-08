@@ -10,7 +10,7 @@ export default ({
     pathName
 }) => {
     return (
-        <div>
+        <div className="navbar">
             <Responsive {...Responsive.onlyMobile}>
                 <NavBarMobile
                     loading={loading} 

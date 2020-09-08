@@ -18,7 +18,7 @@ export default ({
                 accept={imageMimeTypes} 
                 onChange={onSelectFile}
                 ref={avatarInputRef}
-                style={{ display: 'none' }}
+                className="file-input"
             />
             <div className="image-field">
                 <Image
@@ -42,8 +42,12 @@ export default ({
                     </div>
                 }
                 {selectedFile && 
-                    <Button className="delete-button" circular onClick={onClearFile} icon={'trash'}>
-                    </Button>
+                    <Button 
+                        className="delete-button" 
+                        circular 
+                        onClick={onClearFile} 
+                        icon={'trash'}
+                    />
                 }
             </div>
         </div>

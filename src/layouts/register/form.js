@@ -16,19 +16,25 @@ export default ({ form, upload }) => {
         adminUser
     } = form
     return (
-        <div className="register-container">
-            <Form onSubmit={onSubmit}>
+        <div 
+            className={`register-form-container ${error ? 
+                'error-register' : ''
+            }`}
+        >
+            <Form className="register-form" onSubmit={onSubmit}>
                 <div className="segment-container">
                     <Segment 
                         dispatch={authDispatch} 
-                        message={error ? error.message : successMessage} 
+                        message={error ? 
+                            error.message : successMessage
+                        } 
                         show={segmentShow}
                         type={type}
                     />
                 </div>
-                <div className="avatar-field row">
+                <div className="names-avatar-field">
                     <AvatarUpload {...upload} />
-                    <div className="form-input">
+                    <div className="form-float-left">
                         <Form.Field className="form-field">
                             <label>First Name</label>
                             <input 
@@ -94,6 +100,7 @@ export default ({ form, upload }) => {
                     type='submit'
                     disabled={!!successMessage}
                     loading={loading}
+                    fluid
                 >
                     Register
                 </Button>

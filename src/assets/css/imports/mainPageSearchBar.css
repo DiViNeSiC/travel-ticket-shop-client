@@ -1,0 +1,73 @@
+.home-page-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-header {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.search-form-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1.5px solid #aaa;
+    border-radius: .6rem;
+    padding: 10px 15px;
+}
+
+.search-input-group {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+}
+
+.search-input-field {
+    width: 100% !important;
+} 
+
+.search-credentials-group {
+    display: grid !important;
+    grid-template-columns: repeat(3, 210px);
+}
+
+.label {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+    font-size: .75rem !important;
+}
+
+@media all and (max-width: 800px) {
+    .search-form {
+        width: 100%;
+    }
+
+    .search-form-container {
+        width: 100%;
+    }
+
+    .search-credentials-group {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+        width: 100%;
+    }
+
+    .search-credentials-field {
+        width: 100%;
+    }
+}

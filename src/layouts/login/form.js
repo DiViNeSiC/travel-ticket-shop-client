@@ -14,7 +14,7 @@ export default ({
     type
 }) => {
     return (
-        <div className="login-container">
+        <div className={`login-container ${error ? 'error-login' : ''}`}>
             <Form onSubmit={onSubmit}>
                 <div className="segment-container">
                     <Segment

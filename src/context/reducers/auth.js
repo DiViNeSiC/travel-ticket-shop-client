@@ -22,7 +22,15 @@ export default (state, { payload, type }) => {
         case HIDE_SEGMENT: {
             return {
                 ...state,
-                segmentShow: false
+                segmentShow: false,
+                login: { 
+                    ...state.login,
+                    error: null
+                },
+                register: {
+                    ...state.register,
+                    error: null
+                },
             }
         }
 
