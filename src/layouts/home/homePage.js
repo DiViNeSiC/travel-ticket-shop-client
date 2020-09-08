@@ -27,7 +27,7 @@ export default ({
                 </Dimmer>
                 <SegmentError 
                     dispatch={viewProductDispatch} 
-                    message={error} 
+                    message={error ? error.message : null} 
                     type={'error'} 
                     show={segmentShow} 
                 />

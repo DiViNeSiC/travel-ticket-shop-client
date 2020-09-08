@@ -1,0 +1,28 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid rgba(97, 97, 97, 0.5);
+    border-radius: 1rem;
+}
+
+.login-container form {
+    width: 100% !important;
+}
+
+
+@media all and (max-width: 300px) {    
+    .login-container {
+        margin-right: -30px !important;
+    }
+}
+
+@media all and (max-width: 235px) {    
+    .login-container {
+        margin-right: -80px !important;
+    }
+}

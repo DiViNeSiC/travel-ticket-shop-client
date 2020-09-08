@@ -8,8 +8,10 @@ export default () => {
     const avatarInputRef = useRef()
 
     useEffect(() => {
-        if(!selectedFile) 
+        if(selectedFile == null || selectedFile === defaultImage) { 
+            setSelectedFile(null)
             return setDisplayFile(defaultImage)
+        }
 
         const objectUrl = URL.createObjectURL(selectedFile)        
         setDisplayFile(objectUrl)
@@ -19,12 +21,23 @@ export default () => {
 
     const onSelectFile = e => {
         const { files } = e.target
-        if (!files || files.length === 0) {
+        if (files[0] == null || files.length === 0) {
             return setSelectedFile(defaultImage)
         }
 
         setSelectedFile(e.target.files[0])
     }
 
-    return { displayFile, avatarInputRef, onSelectFile }
+    const onClearFile = () => {
+        setSelectedFile(null)
+        setDisplayFile(defaultImage)
+    }
+
+    return { 
+        selectedFile, 
+        displayFile, 
+        avatarInputRef, 
+        onSelectFile, 
+        onClearFile 
+    }
 }

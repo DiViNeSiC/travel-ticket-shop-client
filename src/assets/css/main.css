@@ -1,3 +1,22 @@
+@import './imports/navbar.css';
+@import './imports/login.css';
+@import './imports/register.css';
+@import './imports/form.css';
+@import './imports/segmentMessage.css';
+
+.main-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin-top: 80px;
+    width: 100vw;
+    max-width: 1100px;
 }

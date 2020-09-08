@@ -1,0 +1,18 @@
+.form-field { 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 20px 2px !important;
+    margin-top: 0 !important;
+}
+
+.form-field.text {
+    display: block;
+    margin-bottom: 15px !important;
+}
+
+.form-field input {
+    width: 100% !important;
+}

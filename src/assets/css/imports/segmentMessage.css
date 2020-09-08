@@ -1,0 +1,15 @@
+.segment-container {
+    margin-bottom: 25px;
+}
+
+.segment-container * {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+}
+
+.segment-message { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

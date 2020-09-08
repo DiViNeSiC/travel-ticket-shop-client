@@ -1,0 +1,22 @@
+.mobile-nav-dropdown-btn {
+    background: none !important;
+    color: blue !important;
+}
+
+.nav-cart-btn {
+    background: none !important;
+    color: black !important;
+}
+
+.nav-dashboard-btn {
+    background: none !important;
+    color: blue !important;
+}
+
+.nav-cart-btn:hover {
+    background-color: #dedeeb !important;
+}
+
+.nav-dashboard-btn:hover {
+    background-color: #dedeeb !important;
+}

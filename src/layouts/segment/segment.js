@@ -27,10 +27,7 @@ export default ({ message, show, dispatch, type }) => {
         <>
             {show && 
                 <Message
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center'
-                    }}
+                    className="segment-message"
                     color={type === 'error' ?  'red' : 'blue' }
                 >
                     { message }

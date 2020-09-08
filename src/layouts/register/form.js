@@ -16,9 +16,9 @@ export default ({ form, upload }) => {
         adminUser
     } = form
     return (
-        <div>
+        <div className="register-container">
             <Form onSubmit={onSubmit}>
-                <div>
+                <div className="segment-container">
                     <Segment 
                         dispatch={authDispatch} 
                         message={error ? error.message : successMessage} 
@@ -26,26 +26,28 @@ export default ({ form, upload }) => {
                         type={type}
                     />
                 </div>
-                <div>
+                <div className="avatar-field row">
                     <AvatarUpload {...upload} />
+                    <div className="form-input">
+                        <Form.Field className="form-field">
+                            <label>First Name</label>
+                            <input 
+                                required 
+                                name="name" 
+                                placeholder='First Name' 
+                            />
+                        </Form.Field>
+                        <Form.Field className="form-field">
+                            <label>Last Name</label>
+                            <input 
+                                required 
+                                name="lastname" 
+                                placeholder='Last Name' 
+                            />
+                        </Form.Field>
+                    </div>
                 </div>
-                <Form.Field>
-                    <label>First Name</label>
-                    <input 
-                        required 
-                        name="name" 
-                        placeholder='First Name' 
-                    />
-                </Form.Field>
-                <Form.Field>
-                    <label>Last Name</label>
-                    <input 
-                        required 
-                        name="lastname" 
-                        placeholder='Last Name' 
-                    />
-                </Form.Field>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <label>Username</label>
                     <input 
                         required 
@@ -53,7 +55,7 @@ export default ({ form, upload }) => {
                         placeholder='Username' 
                     />
                 </Form.Field>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <label>Email</label>
                     <input 
                         required 
@@ -62,7 +64,7 @@ export default ({ form, upload }) => {
                         placeholder='Email' 
                     />
                 </Form.Field>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <label>Password</label>
                     <input 
                         required 
@@ -71,14 +73,14 @@ export default ({ form, upload }) => {
                         placeholder='Password' 
                     />
                 </Form.Field>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <Checkbox 
                         onChange={onChangeAdminUser} 
                         label='Admin User ?' 
                     />
                 </Form.Field>
                 {adminUser && 
-                    <Form.Field>
+                    <Form.Field className="form-field">
                         <label>Admin Password</label>
                         <input 
                             name="adminPassword" 

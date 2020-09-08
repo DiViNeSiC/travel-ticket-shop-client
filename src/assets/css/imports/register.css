@@ -1,0 +1,100 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid rgba(97, 97, 97, 0.5);
+    border-radius: 1rem;
+}
+
+.register-container form {
+    width: 100% !important;
+}
+
+.avatar-field { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.form-input {
+    width: 60%;
+}
+
+.image-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 140px;
+}
+
+.image-display {
+    width: 140px !important;
+    height: 145px !important;
+    border-radius: 50% !important; 
+    background-size: cover !important;
+    margin-right: 5px;
+}
+
+.avatar-field .select-button {
+    position: absolute;
+    right: 51.6px;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 2.5rem;
+    width: 40px;
+    background-color: rgba(112, 112, 112, 0.5);
+    transition: .2s;
+    cursor: pointer;
+}
+
+.avatar-field .select-button:hover {
+    background-color: rgba(102, 102, 102, .8);
+}
+
+.avatar-field .delete-button {
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
+
+@media all and (max-width: 445px) {    
+    .image-display {
+        margin-right: -20px !important;
+        width: 110px !important;
+        height: 115px !important;
+    }
+
+        
+    .avatar-field .select-button {
+        left: 61px;
+    }
+}
+
+@media all and (max-width: 375px) {    
+    .form-input {
+        width: 100%;
+    }
+
+    .avatar-field {
+        flex-direction: column;
+    }
+}
+
+@media all and (max-width: 300px) {    
+    .register-container {
+        margin-right: -30px !important;
+    }
+}
+
+@media all and (max-width: 235px) {    
+    .register-container {
+        margin-right: -80px !important;
+    }
+}

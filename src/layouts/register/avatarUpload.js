@@ -1,11 +1,17 @@
 import React from 'react'
-import { Image, Segment } from 'semantic-ui-react'
+import { Image, Button } from 'semantic-ui-react'
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg']
 
-export default ({ displayFile, avatarInputRef, onSelectFile }) => {
+export default ({ 
+    selectedFile, 
+    displayFile, 
+    avatarInputRef, 
+    onSelectFile, 
+    onClearFile  
+}) => {
     return (
-        <div>
+        <div className="avatar-section">
             <input
                 type="file" 
                 name="avatar"
@@ -14,28 +20,31 @@ export default ({ displayFile, avatarInputRef, onSelectFile }) => {
                 ref={avatarInputRef}
                 style={{ display: 'none' }}
             />
-            <div>
+            <div className="image-field">
                 <Image
-                    style={{
-                        width: '135px',
-                        height: '140px',
-                        borderRadius: '50%',
-                        backgroundSize: 'cover'
-                    }}
+                    onClick={() => 
+                        avatarInputRef.current.click()
+                    } 
+                    className="image-display"
                     size="small"
                     alt="YOUR AVATAR" 
                     src={displayFile} 
                     rounded
                 />
-                <div 
-                    onClick={() => 
-                        avatarInputRef.current.click()
-                    } 
-                >
-                    <Segment textAlign="center" >
-                        Select Avatar
-                    </Segment>
-                </div>
+                {selectedFile == null && 
+                    <div 
+                        className="select-button"
+                        onClick={() => 
+                            avatarInputRef.current.click()
+                        } 
+                    >
+                        +
+                    </div>
+                }
+                {selectedFile && 
+                    <Button className="delete-button" circular onClick={onClearFile} icon={'trash'}>
+                    </Button>
+                }
             </div>
         </div>
     )

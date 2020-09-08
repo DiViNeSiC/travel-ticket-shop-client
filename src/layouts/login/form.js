@@ -14,9 +14,9 @@ export default ({
     type
 }) => {
     return (
-        <div>
+        <div className="login-container">
             <Form onSubmit={onSubmit}>
-                <div>
+                <div className="segment-container">
                     <Segment
                         dispatch={authDispatch}
                         message={error ? error.message : null}
@@ -24,7 +24,7 @@ export default ({
                         type={type}
                     />
                 </div>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <label>Enter Your Username Or Email</label>
                     <input
                         name="usernameOrEmail" 
@@ -32,7 +32,7 @@ export default ({
                         placeholder='Username Or Email' 
                     />
                 </Form.Field>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <label>Password</label>
                     <input
                         name="password" 
@@ -41,17 +41,24 @@ export default ({
                         placeholder='Password' 
                     />
                 </Form.Field>
-                <Form.Field>
+                <Form.Field className="form-field">
                     <Checkbox
                         onChange={onChangeRememberUser} 
                         label='Remember Me ?' 
                     />
                 </Form.Field>
-                <div>
+                <div className="form-field text">
                     Forgot Your Password ?  
                     <Link to="/forgot-password"> Reset Password</Link>
                 </div>
-                <Button loading={loading} primary type='submit'>Login</Button>
+                <Button 
+                    fluid 
+                    loading={loading} 
+                    primary 
+                    type='submit'
+                >
+                    Login
+                </Button>
             </Form>
         </div>
     )

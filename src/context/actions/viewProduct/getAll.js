@@ -17,9 +17,15 @@ export default (isIndex) => async (productDispatch) => {
             payload: res.data 
         })
     } catch (err) {
+        let error = err
+
+        if (err.response) {
+            error = err.response.data
+        }
+
         productDispatch({ 
             type: GET_ALL_PRODUCTS_ERROR, 
-            payload: err.response 
+            payload: error
         })
     }
 }
