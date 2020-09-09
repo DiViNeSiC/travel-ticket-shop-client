@@ -5,14 +5,14 @@ import {
     GET_ALL_PRODUCTS_ERROR 
 }  from '../../../constants/viewProduct'
 
-export default (isIndex) => async (productDispatch) => {
+export default (isIndex) => async (dispatch) => {
     try {
         const url = isIndex ? '/' : '/dashboard'
-        productDispatch({ type: GET_ALL_PRODUCTS_LOADING })
+        dispatch({ type: GET_ALL_PRODUCTS_LOADING })
         
         const res = await axios.get(`${url}`)
 
-        productDispatch({ 
+        dispatch({ 
             type: GET_ALL_PRODUCTS_SUCCESS,
             payload: res.data 
         })
@@ -23,7 +23,7 @@ export default (isIndex) => async (productDispatch) => {
             error = err.response.data
         }
 
-        productDispatch({ 
+        dispatch({ 
             type: GET_ALL_PRODUCTS_ERROR, 
             payload: error
         })

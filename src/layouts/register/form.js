@@ -22,16 +22,14 @@ export default ({ form, upload }) => {
             }`}
         >
             <Form className="register-form" onSubmit={onSubmit}>
-                <div className="segment-container">
-                    <Segment 
-                        dispatch={authDispatch} 
-                        message={error ? 
-                            error.message : successMessage
-                        } 
-                        show={segmentShow}
-                        type={type}
-                    />
-                </div>
+                <Segment 
+                    dispatch={authDispatch} 
+                    message={error ? 
+                        error.message : successMessage
+                    } 
+                    show={segmentShow}
+                    type={type}
+                />
                 <div className="names-avatar-field">
                     <AvatarUpload {...upload} />
                     <div className="form-float-left">

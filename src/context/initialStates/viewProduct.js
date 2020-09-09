@@ -11,9 +11,9 @@ export default {
         searchedProducts: [],
         searchedProductsLength: 0
     },
-    inCart: {
+    oneProduct: {
         loading: false,
         error: null,
-        products: []
+        product: null
     }
 }

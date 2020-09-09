@@ -5,6 +5,8 @@ import forgotPassReducer from '../reducers/forgotPass'
 import forgotPassStates from '../initialStates/forgotPass'
 import viewProductReducer from '../reducers/viewProduct'
 import viewProductStates from '../initialStates/viewProduct'
+import userCartReducer from '../reducers/userCart'
+import userCartStates from '../initialStates/userCart'
 
 export const GlobalContext = createContext()
 
@@ -21,15 +23,21 @@ export const GlobalProvider = ({ children }) => {
         viewProductReducer, viewProductStates
     )
 
+    const [userCartState, userCartDispatch] = useReducer(
+        userCartReducer, userCartStates
+    )
+
     return (
         <GlobalContext.Provider 
             value={{
                 authState,
                 viewProductState,
                 forgotPassState,
+                userCartState,
                 forgotPassDispatch,
                 authDispatch,
-                viewProductDispatch
+                viewProductDispatch,
+                userCartDispatch
             }}
         >
             {children}

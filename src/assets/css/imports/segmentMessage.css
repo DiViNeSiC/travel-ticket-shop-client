@@ -1,5 +1,9 @@
 .segment-container {
     margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .segment-container * {
@@ -8,8 +12,20 @@
 }
 
 .segment-message { 
+    position: fixed !important;
+    top: 65px !important;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    z-index: 3;
+    width: 90%;
+    max-width: 600px;
+}
+
+.close-icon {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    cursor: pointer;
 }

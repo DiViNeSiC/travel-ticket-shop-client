@@ -4,12 +4,10 @@ import { Card, Segment, Header, Icon } from 'semantic-ui-react'
 import ImageSlider from './imageSlider'
 import Continent from './continent'
 
-export default ({ 
-    limit, 
+export default ({  
     allProducts, 
     products, 
-    length, 
-    handleIncrease 
+    length 
 }) => {
     return (
         <>
@@ -23,7 +21,10 @@ export default ({
                             const { title, price, continent, imagePaths, _id } = product
                             return (
                                 <Card key={_id} className="product-card">
-                                    <Link className="product-link" to={`/products/${_id}`}>
+                                    <Link 
+                                        className="product-link" 
+                                        to={`/product/${_id}`}
+                                    >
                                         <ImageSlider images={imagePaths} />
                                     </Link>
                                     <Card.Header className="header">

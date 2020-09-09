@@ -1,7 +1,8 @@
 import React from 'react'
-import Products from './Products/renderProducts'
-import { Dimmer, Loader, Icon, Button } from 'semantic-ui-react'
+import Products from '../viewProducts/productsLayout/renderProducts'
+import { Icon, Button } from 'semantic-ui-react'
 import SegmentError from '../segment/segment'
+import Dimmer from '../segment/dimmer'
 import SearchForm from './searchForm'
 
 export default ({ 
@@ -26,11 +27,10 @@ export default ({
             <div className="search-form-container">
                 <SearchForm {...search} />
             </div>
-            {!error && 
-                <Dimmer className="dimmer" active={loading} inverted>
-                    <Loader inverted>Loading Products...</Loader>
-                </Dimmer>
-            }
+            <Dimmer 
+                error={error}
+                loading={loading}
+            />
             <SegmentError 
                 dispatch={viewProductDispatch} 
                 message={error ? error.message : null} 
@@ -43,7 +43,6 @@ export default ({
                         length={resultLength} 
                         products={resultProducts} 
                         allProducts={allProducts}
-                        limit={limit}
                     />
                 </div>
             }

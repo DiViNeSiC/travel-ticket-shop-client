@@ -16,14 +16,12 @@ export default ({
     return (
         <div className={`login-container ${error ? 'error-login' : ''}`}>
             <Form onSubmit={onSubmit}>
-                <div className="segment-container">
-                    <Segment
-                        dispatch={authDispatch}
-                        message={error ? error.message : null}
-                        show={segmentShow}
-                        type={type}
-                    />
-                </div>
+                <Segment
+                    dispatch={authDispatch}
+                    message={error ? error.message : null}
+                    show={segmentShow}
+                    type={type}
+                />
                 <Form.Field className="form-field">
                     <label>Enter Your Username Or Email</label>
                     <input

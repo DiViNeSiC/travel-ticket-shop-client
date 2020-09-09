@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Message } from "semantic-ui-react"
+import { Message, Icon } from "semantic-ui-react"
 import { useLocation } from "react-router-dom"
 import { HIDE_SEGMENT } from '../../constants/hideSegment'
 
@@ -10,7 +10,7 @@ export default ({ message, show, dispatch, type }) => {
         if (show) {
             setTimeout(() => {
                 dispatch({ type: HIDE_SEGMENT })
-            }, 10000)
+            }, 12000)
         }
     }
 
@@ -24,15 +24,18 @@ export default ({ message, show, dispatch, type }) => {
     useEffect(setShow, [pathname]) 
 
     return (
-        <>
+        <div className="segment-container">
             {show && 
                 <Message
                     className="segment-message"
                     color={type === 'error' ?  'red' : 'blue' }
                 >
                     { message }
+                    <div className="close-icon" onClick={setShow}>
+                        <Icon color={type === 'error' ?  'red' : 'blue' } name="times circle outline" />
+                    </div>
                 </Message>
             }
-        </>
+        </div>
     )
 }

@@ -2,6 +2,9 @@ import {
     GET_ALL_PRODUCTS_LOADING,
     GET_ALL_PRODUCTS_SUCCESS,
     GET_ALL_PRODUCTS_ERROR,
+    GET_ONE_PRODUCTS_LOADING,
+    GET_ONE_PRODUCTS_SUCCESS,
+    GET_ONE_PRODUCTS_ERROR,
     INITIAL_LIMIT,
     INITIAL_LIMIT_INCREASE,
     INCREASE_LIMIT,
@@ -104,6 +107,39 @@ export default (state, { payload, type }) => {
                     products: limitFunc(baseProducts, INITIAL_LIMIT),
                     limit: INITIAL_LIMIT,
                     searchedProductsLength: searchProducts.length
+                }
+            }
+        }
+
+        case GET_ONE_PRODUCTS_LOADING: {
+            return {
+                ...state,
+                oneProduct: {
+                    ...state.oneProduct,
+                    loading: true
+                }
+            }
+        }
+
+        case GET_ONE_PRODUCTS_SUCCESS: {
+            return {
+                ...state,
+                oneProduct: {
+                    loading: false,
+                    error: null,
+                    product: payload.product
+                }
+            }
+        }
+
+        case GET_ONE_PRODUCTS_ERROR: {
+            return {
+                ...state,
+                segmentShow: true,
+                oneProduct: {
+                    loading: false,
+                    error: payload,
+                    product: {}
                 }
             }
         }

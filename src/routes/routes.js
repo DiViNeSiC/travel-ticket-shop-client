@@ -5,6 +5,7 @@ import ForgotPass from '../components/login/forgotPass'
 import ResetPass from '../components/login/resetPass'
 import DashboardComponent from '../components/home/dashboard'
 import IndexPageComponent from '../components/home/index'
+import ViewOneProduct from '../components/viewProduct/view'
 
 export default [
     {
@@ -42,6 +43,11 @@ export default [
         component: DashboardComponent,
         title: 'Dashboard',
         protected: true,
+    },
+    {
+        path: '/product/:id',
+        component: ViewOneProduct,
+        title: 'Travel Ticket Shop'
     },
     {
         path: '/',
