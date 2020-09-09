@@ -5,7 +5,13 @@
 @import './imports/segmentMessage.css';
 @import './imports/mainPageSearchBar.css';
 @import './imports/mainPageProducts.css';
+@import './imports/productDetails.css';
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 .main-container {
     display: flex;
