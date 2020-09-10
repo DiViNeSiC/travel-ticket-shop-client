@@ -6,6 +6,8 @@
 @import './imports/mainPageSearchBar.css';
 @import './imports/mainPageProducts.css';
 @import './imports/productDetails.css';
+@import './imports/cart.css';
+@import './imports/resetPass.css';
 
 *,
 *::before,

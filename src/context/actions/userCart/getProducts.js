@@ -1,30 +1,30 @@
 import axios from '../../../helpers/axios/axiosInstance'
 
 import {
-    REMOVE_ALL_LOADING,
-    REMOVE_ALL_SUCCESS,
-    REMOVE_ALL_ERROR
+    GET_ALL_CART_PRODUCTS_LOADING,
+    GET_ALL_CART_PRODUCTS_SUCCESS,
+    GET_ALL_CART_PRODUCTS_ERROR
 } from '../../../constants/userCart'
 
 export default async (dispatch) => {
     try {
-        dispatch({ type: REMOVE_ALL_LOADING })
+        dispatch({ type: GET_ALL_CART_PRODUCTS_LOADING })
 
-        const res = await axios.delete(`/cart/delete`)
+        const res = await axios.get('/dashboard/cart')
 
         dispatch({ 
-            type: REMOVE_ALL_SUCCESS,
+            type: GET_ALL_CART_PRODUCTS_SUCCESS,
             payload: res.data
         })
     } catch (err) {
-        let error = err.message 
+        let error = err.message
         
         if (err.response) {
             error = err.response.data.message
         }
 
         dispatch({ 
-            type: REMOVE_ALL_ERROR,
+            type: GET_ALL_CART_PRODUCTS_ERROR,
             payload: error
         })
     }

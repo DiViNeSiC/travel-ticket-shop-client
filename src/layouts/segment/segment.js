@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Message, Icon } from "semantic-ui-react"
+import { Message, Icon, Button } from "semantic-ui-react"
 import { useLocation } from "react-router-dom"
 import { HIDE_SEGMENT } from '../../constants/hideSegment'
 
@@ -34,6 +34,11 @@ export default ({ message, show, dispatch, type }) => {
                     <div className="close-icon" onClick={setShow}>
                         <Icon color={type === 'error' ?  'red' : 'blue' } name="times circle outline" />
                     </div>
+                    { message === 'Network Error' &&
+                        <Button negative className="retry-button" onClick={() => {
+                            window.location.reload()
+                        }} content="Retry" />
+                    }
                 </Message>
             }
         </div>

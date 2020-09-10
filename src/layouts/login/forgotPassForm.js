@@ -14,7 +14,7 @@ export default ({
     type
 }) => {
     return (
-        <div>
+        <div className="reset-form-container">
             <Form onSubmit={onSubmit}>
                 <div>
                     <Segment
@@ -31,18 +31,19 @@ export default ({
                         placeholder='Email' 
                     />
                 </Form.Field>
-                <div>
+                <div className="btn-container">
                     <Button
                         primary 
                         type='submit'
                         disabled={!!successMessage}
                         loading={loading}
+                        fluid
                     >
                         Send Reset Password Email
                     </Button>
                 </div>
                 <div>
-                    <Button as={Link} to="/login">Back To Login</Button>
+                    <Button fluid as={Link} to="/login">Back To Login</Button>
                 </div>
             </Form>
         </div>

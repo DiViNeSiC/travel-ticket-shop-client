@@ -4,6 +4,7 @@ import { GlobalContext } from '../../../context/contextProvider/provider'
 import getOne from '../../../context/actions/viewProduct/getOne'
 import addCart from '../../../context/actions/userCart/add'
 import isAuthenticated from '../../../utils/authenticate/userAuth'
+import getProducts from '../../../context/actions/userCart/getProducts'
 
 export default () => {
     const {
@@ -21,7 +22,8 @@ export default () => {
             loading: cartLoading,
             error: cartError,
             success: cartSuccess,
-            segmentShow: cartSegmentShow
+            segmentShow: cartSegmentShow,
+            details
         }
     } = useContext(GlobalContext)
 
@@ -31,6 +33,7 @@ export default () => {
     const isAuth = isAuthenticated()
 
     const onLoad = () => {
+        getAllCartProducts()
         handleGetOneProduct()
     }
 
@@ -53,12 +56,18 @@ export default () => {
     }
 
     const handleAddToCart = async () => {
-        await addCart(id, quantity)(userCartDispatch)
+        await addCart(id, parseInt(quantity))(userCartDispatch)
     }
 
     const handleGetOneProduct = async () => {
         await getOne(id)(viewProductDispatch)
     }
+
+    const getAllCartProducts = async () => {
+        if (isAuth) {
+            await getProducts(userCartDispatch)
+        }
+    } 
 
     useEffect(onLoad, [])
 
@@ -67,7 +76,7 @@ export default () => {
     const segmentShow = cartSegmentShow ? cartSegmentShow : productSegmentShow
     const dispatch = cartSegmentShow ? userCartDispatch : viewProductDispatch
     const type = error ? 'error' : 'success'
-    
+
     return { 
         onAddCart,
         onQuantityChange,
@@ -79,6 +88,7 @@ export default () => {
         isAuth,
         product,
         type,
-        quantity
+        quantity,
+        details
     }
 }

@@ -18,7 +18,7 @@ export default (productId, quantity) => async (dispatch) => {
             payload: res.data.message
         })
     } catch (err) {
-        let error 
+        let error = err.message
         
         if (err.response) {
             error = err.response.data.message

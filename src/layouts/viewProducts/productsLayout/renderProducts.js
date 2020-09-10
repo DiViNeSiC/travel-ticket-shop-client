@@ -39,8 +39,8 @@ export default ({
                         })}
                     </div> 
                 </> : 
-                <Segment placeholder>
-                    <Header icon>
+                <Segment className="not-found" placeholder>
+                    <Header className="not-found" icon>
                         <Icon name='times circle outline' />
                         {length}
                     </Header>

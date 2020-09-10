@@ -5,6 +5,7 @@ import { Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default ({
+    _id,
     title,
     price,
     continent,
@@ -19,8 +20,10 @@ export default ({
     quantity,
     onQuantityChange,
     error,
-    cartSuccess
+    cartSuccess,
+    details
 }) => {
+    const isInCart = details.find(detail => detail.productId === _id)
     return (
         <div className="product-details-container">   
             <div className="details-image-container">
@@ -39,11 +42,11 @@ export default ({
                         </div>
                         <Button
                             className="btn"
-                            content="Add To Cart"
+                            content={isInCart ? 'Already In Cart' : "Add To Cart"}
                             icon={{ className: "plus cart" }}
                             color={error ? 'red' : cartSuccess ? 'green' : 'vk'}
                             onClick={onAddCart}
-                            disabled={error || cartSuccess}
+                            disabled={error || cartSuccess || !!isInCart}
                         />
                     </div>
                 }
@@ -54,6 +57,9 @@ export default ({
                             to="/login" 
                             content="You Must Login For Adding To Your Cart"
                             icon={{ className: "sign in" }}
+                            size="small"
+                            fluid
+                            className="btn"
                         />
                     </div>
                 }

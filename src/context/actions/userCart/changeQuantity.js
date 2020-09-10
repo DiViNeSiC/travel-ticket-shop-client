@@ -15,10 +15,10 @@ export default (productId, quantity) => async (dispatch) => {
 
         dispatch({ 
             type: CHANGE_QUANTITY_SUCCESS,
-            payload: res.data.message
+            payload: res.data
         })
     } catch (err) {
-        let error 
+        let error = err.message
         
         if (err.response) {
             error = err.response.data.message

@@ -15,10 +15,10 @@ export default (productId) => async (dispatch) => {
 
         dispatch({ 
             type: REMOVE_FROM_CART_SUCCESS,
-            payload: res.data.message
+            payload: res.data
         })
     } catch (err) {
-        let error 
+        let error = err.message
         
         if (err.response) {
             error = err.response.data.message

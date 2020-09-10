@@ -11,7 +11,7 @@ export default (route) => {
         history.push('/login')
     }
 
-    if (route.forAuth && isAuth()) {
+    if ((route.forAuth || route.isIndex) && isAuth()) {
         history.push('/dashboard')
     }
 

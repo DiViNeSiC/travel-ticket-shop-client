@@ -13,7 +13,7 @@ export default ({
     type
 }) => {
     return (
-        <div>
+        <div className="reset-form-container">
             <Form onSubmit={onSubmit}>
                 <div>
                     <Segment
@@ -32,6 +32,7 @@ export default ({
                     disabled={!!successMessage}
                     positive 
                     type='submit'
+                    fluid
                 >
                     Reset Password
                 </Button>

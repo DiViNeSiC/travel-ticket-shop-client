@@ -68,6 +68,15 @@
     text-align: center;
 }
 
+.home-page-container .not-found {
+    width: 350px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column;
+    text-align: center !important;
+}
+
 @media all and (max-width: 1180px) {
     .home-page-container .products-grid {
         grid-template-columns: repeat(3, 250px);

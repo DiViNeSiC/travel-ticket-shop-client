@@ -14,7 +14,8 @@ export default ({
     isAuth,
     product,
     type,
-    quantity
+    quantity,
+    details
 }) => {
     return (
         <div className="view-container">
@@ -38,6 +39,7 @@ export default ({
                     error={error}
                     cartSuccess={cartSuccess}
                     onAddCart={onAddCart}
+                    details={details ? details : []}
                     {...product} 
                 />
             }

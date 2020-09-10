@@ -19,17 +19,18 @@ export default ({ error, successMessage, loading }) => {
                     as={Link} 
                     to="/login" 
                     primary 
+                    fluid
                 >
                     Now Login To Your Account !
                 </Button> :
                 <Button 
+                    fluid
                     as={Link} 
                     to="/register" 
                     negative 
                 >
                     Register Again?
                 </Button>
-            
             }
         </Segment>
     )

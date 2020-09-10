@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     text-align: center;
     z-index: 3;
     width: 90%;
@@ -28,4 +29,14 @@
     top: -3px;
     right: 0;
     cursor: pointer !important;
+}
+
+.retry-button {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem .35rem !important;
+    padding-bottom: .45rem !important;
+    margin: 0 !important;
+    margin-top: 10px !important;
 }

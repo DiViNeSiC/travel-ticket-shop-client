@@ -6,6 +6,7 @@ import ResetPass from '../components/login/resetPass'
 import DashboardComponent from '../components/home/dashboard'
 import IndexPageComponent from '../components/home/index'
 import ViewOneProduct from '../components/viewProduct/view'
+import UserCart from '../components/cartView/cart'
 
 export default [
     {
@@ -37,6 +38,12 @@ export default [
         component: ResetPass,
         title: 'Reset Password',
         forAuth: true
+    },
+    {
+        path: '/dashboard/cart',
+        component: UserCart,
+        title: 'Cart',
+        protected: true,
     },
     {
         path: '/dashboard',
