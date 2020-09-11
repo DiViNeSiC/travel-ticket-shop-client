@@ -24,6 +24,7 @@ axiosInstance.interceptors.response.use((response) =>
 
         if (err.response.status === 401 && headers.Authorization) {
             localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
+            localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
             return window.location = '/login'
         }
 

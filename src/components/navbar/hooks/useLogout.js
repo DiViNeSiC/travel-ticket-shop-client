@@ -32,6 +32,7 @@ export default () => {
     const deleteToken = () => {
         if (success) {
             localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
+            localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
             history.push('/login')
         }
     }

@@ -12,7 +12,8 @@ export default () => {
             login: {
                 loading,
                 error,
-                token
+                token,
+                user
             } 
         }
     } = useContext(GlobalContext)
@@ -40,6 +41,10 @@ export default () => {
     }
 
     const saveToken = () => {
+        if (user.avatarImagePath) {
+            localStorage.setItem('TRAVEL_SHOP_AVATAR_LOCATION', user.avatarImagePath)
+        }
+        
         if (token) {
             localStorage.setItem('TRAVEL_SHOP_AUTH_TOKEN', token)
             removeToken(authDispatch)

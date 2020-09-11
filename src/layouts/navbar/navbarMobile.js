@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Icon, Button, Dropdown } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 
-export default ({ handleLogout, loading, isAuth, pathName }) => {
+export default ({ handleLogout, loading, isAuth, pathName, avatar }) => {
     const path = pathName.split('/')[2] ?
         pathName.split('/')[2] :
         pathName.split('/')[1] 
@@ -10,7 +10,7 @@ export default ({ handleLogout, loading, isAuth, pathName }) => {
     const showingPathName = path.length > 12 ? 
         'Dashboard' :
         path.charAt(0).toUpperCase() + path.slice(1) 
-        
+    
     return (
         <Menu fixed="top">
             <Menu.Item>
@@ -53,13 +53,13 @@ export default ({ handleLogout, loading, isAuth, pathName }) => {
                         {isAuth && pathName !== '/dashboard/settings' &&
                             <Dropdown.Item>
                                 <Button
-                                    className="mobile-nav-dropdown-btn" 
+                                    className="mobile-nav-dropdown-btn nav-avatar-container" 
                                     fluid 
                                     as={Link} 
                                     to="/dashboard/settings"
                                 >
-                                    <Icon className="setting" />
-                                    Settings
+                                    <img className="nav-avatar" src={avatar} alt="" />
+                                    Account
                                 </Button>
                             </Dropdown.Item>
                         }
