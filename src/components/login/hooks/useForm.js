@@ -41,7 +41,7 @@ export default () => {
     }
 
     const saveToken = () => {
-        if (user.avatarImagePath) {
+        if (user?.avatarImagePath) {
             localStorage.setItem('TRAVEL_SHOP_AVATAR_LOCATION', user.avatarImagePath)
         }
         

@@ -91,6 +91,7 @@ export default () => {
 
     useEffect(onLoad, [])
 
+    
     const cartProducts = products.length ? products : null
 
     return {

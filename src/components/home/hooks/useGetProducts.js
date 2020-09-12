@@ -37,6 +37,7 @@ export default (isIndex) => {
     }
     
     useEffect(onLoad, [])
+
     
     const mainLength = baseLength > 0 ? 
         `${baseLength} Products` : 

@@ -1,0 +1,8 @@
+export const ERROR = 'ERROR'
+export const LOADING = 'LOADING'
+export const GET_USER_INFO = 'GET_USER_INFO'
+export const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
+export const UPDATE_USER_PASS = 'UPDATE_USER_PASS'
+export const UPDATE_AVATAR = 'UPDATE_AVATAR'
+export const DELETE_AVATAR = 'DELETE_AVATAR'
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT'

@@ -1,0 +1,79 @@
+.settings-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.settings-container .settings-form-container {
+    width: 100%;
+    max-width: 700px;
+    display: flex !important;
+    justify-content: space-around !important; 
+    align-items: center !important;
+    align-content: center;
+    flex-direction: row-reverse !important;
+    border: .5px solid rgba(95, 95, 95, 0.6);
+    padding: 20px 0;
+    border-radius: 1rem;
+}
+
+.settings-form-container .image-settings {
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.settings-form-container .info-section {
+    width: 50%;
+    margin-right: 5px;
+}
+
+.image-settings .image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+
+.image-settings .image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 60%;
+    user-select: none;
+}
+
+.settings-form-container .button-section {
+    margin-bottom: 20px;
+}
+
+.change-pass-form {
+    width: 100%;
+    max-width: 650px !important;
+    border: 1px solid rgba(95, 95, 95, 0.6);
+    padding: 10px;
+    border-radius: 1rem;
+}
+
+.delete-acc-form {
+    width: 100%;
+    max-width: 650px !important;
+}
+
+@media all and (max-width: 470px) {
+    .settings-container .settings-form-container {
+        flex-direction: column !important;
+    }
+
+    .settings-form-container .image-settings {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .settings-form-container .info-section {
+        width: 80%;
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-import AvatarUpload from './avatarUpload'
+import AvatarUpload from '../avatar/avatarUpload'
 import Segment from '../segment/segment'
 
 export default ({ form, upload }) => {

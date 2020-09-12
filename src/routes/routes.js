@@ -7,6 +7,9 @@ import DashboardComponent from '../components/home/dashboard'
 import IndexPageComponent from '../components/home/index'
 import ViewOneProduct from '../components/viewProduct/view'
 import UserCart from '../components/cartView/cart'
+import UserSettings from '../components/userSettings/settings'
+import ChangePassword from '../components/userSettings/changePassword'
+import DeleteAccount from '../components/userSettings/deleteAccount'
 
 export default [
     {
@@ -38,6 +41,24 @@ export default [
         component: ResetPass,
         title: 'Reset Password',
         forAuth: true
+    },
+    {
+        path: '/dashboard/delete-account',
+        component: DeleteAccount,
+        title: 'Delete Account',
+        protected: true,
+    },
+    {
+        path: '/dashboard/change-password',
+        component: ChangePassword,
+        title: 'Change Password',
+        protected: true,
+    },
+    {
+        path: '/dashboard/settings',
+        component: UserSettings,
+        title: 'Settings',
+        protected: true,
     },
     {
         path: '/dashboard/cart',

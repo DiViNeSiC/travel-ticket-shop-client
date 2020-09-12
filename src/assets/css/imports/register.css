@@ -10,7 +10,7 @@
     border-radius: 1rem;
 }
 
-.register-form {
+.register-form-container .register-form {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
     flex-direction: column;
 }
 
-.names-avatar-field {
+.register-form-container .names-avatar-field {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@
     width: 100%;
 }
 
-.avatar-section {
+.register-form-container .avatar-section {
     margin-left: auto;
 }
 
@@ -34,18 +34,18 @@
     display: none;
 }
 
-.image-field { 
+.register-form-container .image-field { 
     position: relative;
 }
 
-.image-display {
+.register-form-container .image-display {
     border-radius: 50% !important;
     cursor: pointer;
     width: 145px !important;
     height: 140px !important;
 }
 
-.select-button {
+.register-form-container .select-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,33 +61,33 @@
     cursor: pointer;
 }
 
-.select-button:hover {
+.register-form-container .select-button:hover {
     background-color: rgba(100, 100, 100, 0.521);
 }
 
-.delete-button {
+.register-form-container .delete-button {
     position: absolute;
     top: 115px;
     left: 100px;
 }
 
-.form-float-left {
+.register-form-container .form-float-left {
     width: 100%;
     max-width: 330px;
     margin-right: 20px !important;
 }
 
-.error-register {
+.register-form-container .error-register {
     border: 3px solid rgba(214, 1, 1, 0.5);
     background-color: rgba(255, 0, 0, 0.103);
 }
 
 @media all and (max-width: 645px) {
-    .names-avatar-field {
+    .register-form-container .names-avatar-field {
         flex-direction: column;
     }
         
-    .avatar-section {
+    .register-form-container .avatar-section {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -95,7 +95,7 @@
         margin-left: 0;
     }
         
-    .form-float-left {
+    .register-form-container .form-float-left {
         margin-right: 1.5px !important;
     }
 }

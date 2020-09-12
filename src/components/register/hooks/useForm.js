@@ -40,7 +40,7 @@ export default () => {
         if (successMessage) {
             setTimeout(() => {
                 clearMessage(REGISTER_CLEAR)(authDispatch)
-            }, 10000)
+            }, 12000)
         }
     }
 

@@ -35,7 +35,7 @@ export default () => {
         if (successMessage) {
             setTimeout(() => {
                 clearMessage(FORGOT_PASS_CLEAR)(forgotPassDispatch)
-            }, 10000)
+            }, 12000)
         }
     }
 
