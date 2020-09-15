@@ -72,9 +72,13 @@ export default () => {
     useEffect(onLoad, [])
 
     const loading = cartLoading ? cartLoading : productLoading 
+
     const error = cartError ? cartError : productError?.message
+
     const segmentShow = cartSegmentShow ? cartSegmentShow : productSegmentShow
+
     const dispatch = cartSegmentShow ? userCartDispatch : viewProductDispatch
+    
     const type = error ? 'error' : 'success'
 
     return { 

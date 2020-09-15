@@ -81,11 +81,10 @@ export default () => {
         const path = localStorage.TRAVEL_SHOP_AVATAR_LOCATION
         if (user) {
             if (user.avatarImagePath !== path) {
-                localStorage
-                    .setItem(
-                        'TRAVEL_SHOP_AVATAR_LOCATION', 
-                        user.avatarImagePath
-                    )
+                localStorage.setItem(
+                    'TRAVEL_SHOP_AVATAR_LOCATION', 
+                    user.avatarImagePath
+                )
             }
         }
     }

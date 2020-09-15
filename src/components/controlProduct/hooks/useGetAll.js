@@ -16,6 +16,8 @@ export default () => {
         }
     } = useContext(GlobalContext)
 
+    const { onDelete } = useDelete()
+    
     const onLoad = () => {
         handleGetAllProducts()
     }
@@ -30,8 +32,6 @@ export default () => {
         allProductsLength ? 
         `${allProductsLength} Products` : 
         'You Do Not Have Any Products Right Now'
-
-    const { onDelete } = useDelete()
 
     return {
         onDelete,

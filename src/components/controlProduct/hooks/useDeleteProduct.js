@@ -16,6 +16,7 @@ export default (redirect = false) => {
     const handleDeleteProduct = async (productId) => {
         await deleteProduct(productId)(controlProductDispatch)
         await getAll(controlProductDispatch)
+        
         if (redirect) {
             history.push('/control/products')
         }

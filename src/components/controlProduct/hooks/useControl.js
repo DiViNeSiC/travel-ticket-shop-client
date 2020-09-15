@@ -18,10 +18,12 @@ export default () => {
             error,
         }
     } = useContext(GlobalContext)
+    
+    const { onDelete } = useDelete(true)
 
     const { id } = useParams()
     const [productInfo, setProductInfo] = useState(null)
-
+    
     const onLoad = () => {
         handleGetProduct()
     }
@@ -32,23 +34,7 @@ export default () => {
 
     const setInfo = () => {
         if (oneProduct) {
-            const { 
-                title,
-                price,
-                description,
-                continent,
-                imagePaths,
-                productImageNames
-            } = oneProduct
-
-            setProductInfo({
-                title,
-                price,
-                description,
-                continent,
-                imagePaths,
-                productImageNames
-            })
+            setProductInfo(oneProduct)
         }
     }
 
@@ -100,8 +86,6 @@ export default () => {
     useEffect(onLoad, [])
     useEffect(setInfo, [oneProduct])
     useEffect(update, [success])
-
-    const { onDelete } = useDelete(true)
 
     return {
         onChange,

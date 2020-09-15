@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react"
 import { GlobalContext } from '../../../context/contextProvider/provider'
-import logout from '../../../context/actions/auth/logout/logout'
 import { useLocation, useHistory } from "react-router-dom"
+import logout from '../../../context/actions/auth/logout/logout'
 import userAuth from '../../../utils/authenticate/userAuth'
 
 export default () => {
@@ -34,6 +34,7 @@ export default () => {
             localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
             localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
             localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
+
             history.push('/login')
         }
     }
