@@ -10,6 +10,9 @@ import UserCart from '../components/cartView/cart'
 import UserSettings from '../components/userSettings/settings'
 import ChangePassword from '../components/userSettings/changePassword'
 import DeleteAccount from '../components/userSettings/deleteAccount'
+import ControlAllProducts from '../components/controlProduct/viewAll'
+import ControlOneProducts from '../components/controlProduct/viewOne'
+import UploadProduct from '../components/controlProduct/uploadProduct'
 
 export default [
     {
@@ -69,13 +72,31 @@ export default [
     {
         path: '/dashboard',
         component: DashboardComponent,
-        title: 'Dashboard',
+        title: 'Travel Ticket Shop',
         protected: true,
     },
     {
         path: '/product/:id',
         component: ViewOneProduct,
-        title: 'Travel Ticket Shop'
+        title: 'Travel Ticket Shop',
+    },
+    {
+        path: '/control/create/products/',
+        component: UploadProduct,
+        title: 'Upload Product',
+        protected: true,
+    },
+    {
+        path: '/control/products/:id',
+        component: ControlOneProducts,
+        title: 'Control Product',
+        protected: true,
+    },
+    {
+        path: '/control/products',
+        component: ControlAllProducts,
+        title: 'Control Products',
+        protected: true,
     },
     {
         path: '/',

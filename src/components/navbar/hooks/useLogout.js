@@ -33,6 +33,7 @@ export default () => {
         if (success) {
             localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
             localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
+            localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
             history.push('/login')
         }
     }

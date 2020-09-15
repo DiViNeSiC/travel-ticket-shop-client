@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick'
 import { Image } from 'semantic-ui-react'
+import defaultImage from '../../../assets/images/defaultImage.png'
 
 export default ({ images }) => {
     const backEndUrl = 
@@ -20,13 +21,19 @@ export default ({ images }) => {
         slidesToScroll: 1,
         className: 'slides',
     }
+
+    const productImages = images.length ? images : [defaultImage]
         
     return (
         <Slider className="product-slider" {...settings} > 
-            {images.map((image, index) => 
+            {productImages.map((image, index) => 
                 <div className="product-image-container" key={index} >
                     <Image
-                        src={`${backEndUrl}${image}`}
+                        src={
+                            image !== defaultImage ? 
+                                `${backEndUrl}${image}` :
+                                defaultImage
+                            }
                         className="product-image"
                         alt="Product"
                     />

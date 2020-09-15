@@ -49,6 +49,16 @@
     color: #000 !important;
 }
 
+
+
+.nav-btn {
+    background: none !important;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, .2) !important;
+}
+
 .nav-avatar-btn:hover {
     background: rgba(0, 0, 0, .2) !important;
 }

@@ -9,6 +9,9 @@
 @import './imports/cart.css';
 @import './imports/resetPass.css';
 @import './imports/settings.css';
+@import './imports/productControl.css';
+@import './imports/productUpload.css';
+@import './imports/editProduct.css';
 
 *,
 *::before,

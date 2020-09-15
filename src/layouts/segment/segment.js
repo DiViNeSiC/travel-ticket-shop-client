@@ -1,10 +1,12 @@
 import React, { useEffect } from "react"
 import { Message, Icon, Button } from "semantic-ui-react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useHistory } from "react-router-dom"
 import { HIDE_SEGMENT } from '../../constants/hideSegment'
 
-export default ({ message, show, dispatch, type }) => {
+export default ({ message, show, dispatch, type, redirect }) => {
     const { pathname } = useLocation() 
+
+    const history = useHistory()
 
     const hide = () => {
         if (show) {
@@ -17,6 +19,9 @@ export default ({ message, show, dispatch, type }) => {
     const setShow = () => {
         if (show) {
             dispatch({ type: HIDE_SEGMENT })
+            if (redirect != null) {
+                history.push(redirect)
+            }
         }
     }
 

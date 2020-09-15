@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Icon, Button } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 
-export default ({ handleLogout, loading, pathName, isAuth, avatar }) => (
+export default ({ handleLogout, loading, pathName, isAuth, avatar, isAdmin }) => (
     <Menu fixed="top">
         <Menu.Item>
             <Link to="/">
@@ -29,9 +29,29 @@ export default ({ handleLogout, loading, pathName, isAuth, avatar }) => (
             }
         </Menu.Menu>
         <Menu.Menu position="right">
+            {isAuth && isAdmin && pathName === '/control/products' &&
+                <Menu.Item>
+                    <Button className="nav-btn" as={Link} to="/control/create/products">
+                        <div>
+                            <Icon className="plus" />
+                            Upload A Product
+                        </div>
+                    </Button>
+                </Menu.Item>
+            }
+            {isAuth && isAdmin && pathName !== '/control/products' &&
+                <Menu.Item>
+                    <Button className="nav-btn" as={Link} to="/control/products">
+                        <div>
+                            <Icon className="settings" />
+                            Control Products
+                        </div>
+                    </Button>
+                </Menu.Item>
+            }
             {isAuth && pathName !== '/dashboard/settings' &&
                 <Menu.Item>
-                    <Button className="nav-avatar-btn" primary as={Link} to="/dashboard/settings">
+                    <Button className="nav-avatar-btn" as={Link} to="/dashboard/settings">
                         <div className="nav-avatar-container">
                             <img className="nav-avatar" src={avatar} alt="" />
                             Account

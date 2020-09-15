@@ -44,6 +44,10 @@ export default () => {
         if (user?.avatarImagePath) {
             localStorage.setItem('TRAVEL_SHOP_AVATAR_LOCATION', user.avatarImagePath)
         }
+
+        if (user?.role === 'admin') {
+            localStorage.setItem('TRAVEL_SHOP_USER_ROLE', user.role)
+        }
         
         if (token) {
             localStorage.setItem('TRAVEL_SHOP_AUTH_TOKEN', token)

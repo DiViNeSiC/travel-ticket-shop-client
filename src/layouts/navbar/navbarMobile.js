@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Icon, Button, Dropdown } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 
-export default ({ handleLogout, loading, isAuth, pathName, avatar }) => {
+export default ({ handleLogout, loading, isAuth, pathName, avatar, isAdmin }) => {
     const path = pathName.split('/')[2] ?
         pathName.split('/')[2] :
         pathName.split('/')[1] 
@@ -60,6 +60,32 @@ export default ({ handleLogout, loading, isAuth, pathName, avatar }) => {
                                 >
                                     <img className="nav-avatar" src={avatar} alt="" />
                                     Account
+                                </Button>
+                            </Dropdown.Item>
+                        }
+                        {isAuth && isAdmin && pathName !== '/control/products' &&
+                            <Dropdown.Item>
+                                <Button
+                                    className="mobile-nav-dropdown-btn" 
+                                    fluid 
+                                    as={Link} 
+                                    to="/control/products"
+                                >
+                                    <Icon className="settings" />
+                                    Control Products
+                                </Button>
+                            </Dropdown.Item>
+                        }
+                        {isAuth && isAdmin && pathName === '/control/products' &&
+                            <Dropdown.Item>
+                                <Button
+                                    className="mobile-nav-dropdown-btn" 
+                                    fluid 
+                                    as={Link} 
+                                    to="/control/create/products"
+                                >
+                                    <Icon className="plus" />
+                                    Upload A Product
                                 </Button>
                             </Dropdown.Item>
                         }
