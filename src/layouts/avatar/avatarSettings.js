@@ -48,13 +48,15 @@ export default ({
                     onClick={() => avatarInputRef.current.click()}
                     content='Change Avatar'
                     primary
+                    inverted
                     fluid
                 />
             </div>
             <div>
                 <Button 
                     content='Remove Avatar'
-                    negative
+                    inverted
+                    color="red"
                     fluid
                     onClick={onDeleteAvatar}
                 />

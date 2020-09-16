@@ -4,5 +4,6 @@ export default {
     quantityModal: false,
     error: null,
     success: null,
-    cartProducts: []
+    cartProducts: [],
+    totalPrice: 0
 }

@@ -78,7 +78,8 @@ export default ({
                             <div className='button-section'>
                                 <Button
                                     fluid
-                                    positive
+                                    color="green"
+                                    inverted
                                 >
                                     Update Account
                                 </Button>
@@ -87,7 +88,7 @@ export default ({
                                     <Button
                                         as={Link}
                                         to="/dashboard/change-password"
-                                        secondary
+                                        color="blue"
                                         inverted
                                         content="Change Password"
                                         fluid
@@ -98,7 +99,7 @@ export default ({
                                 <Button
                                     as={Link}
                                     to="/dashboard/delete-account"
-                                    color="google plus"
+                                    color="red"
                                     inverted
                                     content="Delete Account"
                                     fluid

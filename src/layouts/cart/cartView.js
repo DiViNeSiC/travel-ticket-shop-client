@@ -1,11 +1,11 @@
 import React from 'react'
 import Dimmer from '../segment/dimmer'
-import Segment from '../segment/segment'
+import SegmentShow from '../segment/segment'
 import RenderProducts from './partials/renderCartProducts'
 import Modal from './partials/modal'
-import TotalPrice from './partials/totalPrice'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import PaypalButton from './partials/paypalButton'
 
 export default ({
     openQuantityModal,
@@ -20,11 +20,13 @@ export default ({
     error,
     success,
     quantity,
+    totalPrice,
     cartProducts,
     details,
     segmentShow,
     showModal,
-    type
+    type,
+    paypal
 }) => {
     return (
         <div className="cart-container">
@@ -33,7 +35,7 @@ export default ({
             </h1>
             <div>
                 <Dimmer error={error} loading={loading} />
-                <Segment 
+                <SegmentShow 
                     dispatch={userCartDispatch}
                     message={error ? error : success}
                     show={segmentShow}
@@ -74,20 +76,22 @@ export default ({
             <br/>
             { cartProducts && details &&
                 <>
-                    <div className="clear-cart">
-                        <Button 
-                            onClick={onRemoveAll}
-                            icon={{ className: 'trash alternate' }}
-                            content="Clear Cart"
-                            negative
-                            className="btn"
-                        />
-                    </div>
                     <div className="total-payment">
-                        <TotalPrice
-                            details={details}
-                            products={cartProducts}
-                        /> 
+                        <Segment className="payment">
+                            Total Price: ${totalPrice}
+                        </Segment>    
+                        <div className="clear-cart">
+                            <Button 
+                                onClick={onRemoveAll}
+                                icon={{ className: 'trash alternate' }}
+                                content="Clear Cart"
+                                negative
+                                className="btn"
+                            />
+                        </div>
+                        <div>
+                            <PaypalButton {...paypal} />
+                        </div>
                     </div>
                 </>
             }

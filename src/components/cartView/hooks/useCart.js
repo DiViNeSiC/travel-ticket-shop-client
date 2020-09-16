@@ -20,6 +20,7 @@ export default () => {
             success,
             segmentShow,
             details,
+            totalPrice,
             quantityModal: showModal,
             cartProducts: products,
         }
@@ -91,7 +92,6 @@ export default () => {
 
     useEffect(onLoad, [])
 
-    
     const cartProducts = products.length ? products : null
 
     return {
@@ -108,6 +108,7 @@ export default () => {
         quantity,
         success,
         cartProducts,
+        totalPrice,
         details,
         segmentShow,
         showModal,

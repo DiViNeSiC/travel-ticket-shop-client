@@ -85,7 +85,7 @@
 .card-details .buttons .btn {
     width: 100%;
     padding: .3rem .35rem !important;
-    font-size: 1rem !important;
+    font-size: .9rem !important;
 }
 
 .modal-container {
@@ -182,7 +182,8 @@
 
 .cart-container .total-payment {
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
     width: 100%;
 }
 

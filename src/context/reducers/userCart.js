@@ -15,10 +15,16 @@ import {
     REMOVE_ALL_SUCCESS,
     REMOVE_ALL_ERROR,
     HIDE_QUANTITY_MODAL,
-    SHOW_QUANTITY_MODAL
+    SHOW_QUANTITY_MODAL,
+    SUCCESS_PURCHASE_ERROR,
+    SUCCESS_PURCHASE_LOADING,
+    SUCCESS_PURCHASE_SUCCESS,
+    ERROR_PAY
 } from '../../constants/userCart'
 
 import { HIDE_SEGMENT } from '../../constants/hideSegment'
+
+import totalPriceCalculator from '../../helpers/cart/totalPrice'
 
 export default (state, { payload, type }) => {
     switch(type) {
@@ -79,11 +85,14 @@ export default (state, { payload, type }) => {
         }
 
         case GET_ALL_CART_PRODUCTS_SUCCESS: {
+            const { cartProducts, userCart } = payload
+            
             return {
                 ...state,
+                totalPrice: totalPriceCalculator(cartProducts, userCart),
                 loading: false,
-                cartProducts: payload.cartProducts,
-                details: payload.userCart,
+                cartProducts: cartProducts,
+                details: userCart,
                 error: null,
             }
         }
@@ -107,12 +116,15 @@ export default (state, { payload, type }) => {
         }
 
         case REMOVE_FROM_CART_SUCCESS: {
+            const { cartProducts, newCart, message } = payload
+
             return {
                 ...state,
                 loading: false,
-                success: payload.message,
-                cartProducts: payload.cartProducts,
-                details: payload.newCart,
+                success: message,
+                cartProducts: cartProducts,
+                details: newCart,
+                totalPrice: totalPriceCalculator(cartProducts, newCart),
                 error: null,
                 segmentShow: true
             }
@@ -135,12 +147,15 @@ export default (state, { payload, type }) => {
         }
         
         case CHANGE_QUANTITY_SUCCESS: {
+            const { cartProducts, newCart, message } = payload
+
             return {
                 ...state,
                 loading: false,
-                success: payload.message,
-                cartProducts: payload.cartProducts,
-                details: payload.newCart,
+                success: message,
+                cartProducts: cartProducts,
+                details: newCart,
+                totalPrice: totalPriceCalculator(cartProducts, newCart),
                 error: null,
                 segmentShow: true
             }
@@ -163,11 +178,14 @@ export default (state, { payload, type }) => {
         }
         
         case REMOVE_ALL_SUCCESS: {
+            const { cartProducts, newCart, message } = payload
+
             return {
                 loading: false,
-                success: payload.message,
-                cartProducts: payload.cartProducts,
-                details: payload.newCart,
+                totalPrice: totalPriceCalculator(cartProducts, newCart),
+                success: message,
+                cartProducts: cartProducts,
+                details: newCart,
                 error: null,
                 segmentShow: true,
             }
@@ -181,7 +199,45 @@ export default (state, { payload, type }) => {
                 error: payload
             }
         }
-                
+
+        case SUCCESS_PURCHASE_LOADING: {
+            return {
+                ...state,
+                loading: true,
+            }
+        }
+
+        case SUCCESS_PURCHASE_SUCCESS: {
+            return {
+                loading: false,
+                success: payload,
+                cartProducts: [],
+                details: [],
+                error: null,
+                segmentShow: true,
+            }
+        }
+
+        case SUCCESS_PURCHASE_ERROR: {
+            return {
+                ...state,
+                loading: false,
+                success: null,
+                error: payload,
+                segmentShow: true,
+            }
+        }
+
+        case ERROR_PAY: {
+            return {
+                ...state,
+                loading: false,
+                success: null,
+                error: payload,
+                segmentShow: true,
+            }
+        }
+
         default: 
             return state
     }
