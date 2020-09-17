@@ -57,7 +57,7 @@ export default () => {
 
     const redirect = () => {
         if (localStorage.TRAVEL_SHOP_AUTH_TOKEN) {
-            history.push('/dashboard')
+            window.location.reload()
         }
     }
 
