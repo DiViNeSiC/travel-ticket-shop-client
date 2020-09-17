@@ -17,7 +17,7 @@ export default (route) => {
 
     return (    
         <Route
-            exact={route.isIndex}
+            exact={route.exact}
             path={route.path}
             render={(props) => <route.component {...props} />}
         /> 

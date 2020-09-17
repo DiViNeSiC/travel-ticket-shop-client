@@ -13,6 +13,7 @@ import DeleteAccount from '../components/userSettings/deleteAccount'
 import ControlAllProducts from '../components/controlProduct/viewAll'
 import ControlOneProducts from '../components/controlProduct/viewOne'
 import UploadProduct from '../components/controlProduct/uploadProduct'
+import NotFound from '../components/notFound/notFound'
 
 const routes = [
     {
@@ -102,7 +103,15 @@ const routes = [
         path: '/',
         component: IndexPageComponent,
         title: 'Travel Ticket Shop',
-        isIndex: true
+        isIndex: true,
+        exact: true
+    },
+    {
+        path: '*',
+        component: NotFound,
+        title: 'Travel Ticket Shop',
+        isIndex: true,
+        exact: true
     }
 ]
 
