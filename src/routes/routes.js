@@ -14,7 +14,7 @@ import ControlAllProducts from '../components/controlProduct/viewAll'
 import ControlOneProducts from '../components/controlProduct/viewOne'
 import UploadProduct from '../components/controlProduct/uploadProduct'
 
-export default [
+const routes = [
     {
         path: '/register',
         component: RegisterForm,
@@ -105,3 +105,5 @@ export default [
         isIndex: true
     }
 ]
+
+export default routes
