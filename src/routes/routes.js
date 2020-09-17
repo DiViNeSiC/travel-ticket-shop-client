@@ -103,5 +103,5 @@ export default [
         component: IndexPageComponent,
         title: 'Travel Ticket Shop',
         isIndex: true
-    },
+    }
 ]

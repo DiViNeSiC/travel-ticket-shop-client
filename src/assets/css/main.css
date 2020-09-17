@@ -35,3 +35,24 @@
     width: 100vw;
     max-width: 1300px;
 }
+
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #cfcfcf;
+    padding: 20px;  
+    border-radius: .5rem;
+}
+
+.link {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1f5ed3;
+}
+
+.link:hover {
+    color: #0942ad;
+    text-decoration: underline;
+}
