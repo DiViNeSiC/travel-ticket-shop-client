@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+// import { useHistory } from "react-router-dom"
 import { GlobalContext } from "../../../context/contextProvider/provider"
 import login from '../../../context/actions/auth/login/login'
 import removeToken from '../../../context/actions/auth/login/removeToken'
@@ -18,7 +18,7 @@ export default () => {
         }
     } = useContext(GlobalContext)
 
-    const history = useHistory()
+    // const history = useHistory()
 
     const [formData, setFormData] = useState({})
     const [rememberUser, setRememberUser] = useState(false)
@@ -54,7 +54,7 @@ export default () => {
         }
 
         if (localStorage.TRAVEL_SHOP_AUTH_TOKEN && token) {
-            history.push('/dashboard')
+            window.location.reload()
             removeToken(authDispatch)
         }
     }
