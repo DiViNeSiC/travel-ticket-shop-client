@@ -8,7 +8,7 @@ export default (route) => {
     document.title = route.title
 
     if (route.protected && !isAuth() && !headers.Authorization) {
-        history.push('/login')
+        window.location = '/login'
     }
 
     if ((route.forAuth || route.isIndex) && isAuth()) {
