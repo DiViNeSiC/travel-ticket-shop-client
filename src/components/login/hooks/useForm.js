@@ -55,7 +55,7 @@ export default () => {
         }
 
         if (token && isAuth()) {
-            window.location = '/dashboard'
+            window.location = '/#/dashboard'
             removeToken(authDispatch)
         }
     }
