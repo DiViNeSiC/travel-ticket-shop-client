@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
+import { Switch, HashRouter as Router, Route } from 'react-router-dom'
 import { GlobalProvider } from './context/contextProvider/provider'
 import routes from './routes/routes'
 // import RenderRoute from './routes/renderRoutes'
