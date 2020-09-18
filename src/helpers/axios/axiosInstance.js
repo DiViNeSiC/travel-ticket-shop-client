@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { BASE_URL_DEVELOPMENT } from '../../constants/api'
+import { BASE_URL_PRODUCTION } from '../../constants/api'
 
 export default () => {
-    const baseURL = BASE_URL_DEVELOPMENT
+    const baseURL = BASE_URL_PRODUCTION
     const authToken = localStorage.getItem('TRAVEL_SHOP_AUTH_TOKEN')
     
     let headers = {}
