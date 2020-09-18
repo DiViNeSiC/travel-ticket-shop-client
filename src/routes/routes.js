@@ -17,15 +17,16 @@ import NotFound from '../components/notFound/notFound'
 
 const routes = [
     {
+        path: '/',
+        component: IndexPageComponent,
+        title: 'Travel Ticket Shop',
+        isIndex: true,
+        exact: true
+    },
+    {
         path: '/register',
         component: RegisterForm,
         title: 'Register',
-        forAuth: true
-    },
-    {
-        path: '/account-activation/:token',
-        component: ActiveAccount,
-        title: 'Activate Your Account',
         forAuth: true
     },
     {
@@ -35,9 +36,21 @@ const routes = [
         forAuth: true
     },
     {
+        path: '/dashboard',
+        component: DashboardComponent,
+        title: 'Travel Ticket Shop',
+        protected: true,
+    },
+    {
         path: '/forgot-password',
         component: ForgotPass,
         title: 'Forgot Password',
+        forAuth: true
+    },
+    {
+        path: '/account-activation/:token',
+        component: ActiveAccount,
+        title: 'Activate Your Account',
         forAuth: true
     },
     {
@@ -71,12 +84,6 @@ const routes = [
         protected: true,
     },
     {
-        path: '/dashboard',
-        component: DashboardComponent,
-        title: 'Travel Ticket Shop',
-        protected: true,
-    },
-    {
         path: '/product/:id',
         component: ViewOneProduct,
         title: 'Travel Ticket Shop',
@@ -98,13 +105,6 @@ const routes = [
         component: ControlAllProducts,
         title: 'Control Products',
         protected: true,
-    },
-    {
-        path: '/',
-        component: IndexPageComponent,
-        title: 'Travel Ticket Shop',
-        isIndex: true,
-        exact: true
     },
     {
         path: '*',
