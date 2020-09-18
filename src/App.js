@@ -1,8 +1,8 @@
 import React from 'react'
-import { Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom'
 import { GlobalProvider } from './context/contextProvider/provider'
 import routes from './routes/routes'
-import RenderRoute from './routes/renderRoutes'
+// import RenderRoute from './routes/renderRoutes'
 import NavBar from './components/navbar/navbar'
 import uuid from 'uuid/v4'
 
@@ -21,10 +21,12 @@ export default () => {
                     <div className="app-container">
                         <Switch>
                             {routes.map((route) => (
-                                <RenderRoute 
+                                <Route
                                     key={uuid()}
-                                    {...route} 
-                                />
+                                    exact={route.exact}
+                                    path={route.path}
+                                    render={(props) => <route.component {...props} />}
+                                /> 
                             ))}
                         </Switch>
                     </div>
