@@ -81,8 +81,6 @@ export default () => {
     
     const type = error ? 'error' : 'success'
 
-    console.log(product);
-
     return { 
         onAddCart,
         onQuantityChange,
