@@ -123,7 +123,7 @@
 @media all and (max-width: 450px) {
     .details-image-container {
         margin: 0;
-        margin-left: -4px;
+        margin-left: -3px;
     }
 
     .details {
@@ -132,7 +132,7 @@
     }
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 400px) {
     .product-details-container {
         margin-left: 0px;
     }
