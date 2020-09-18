@@ -15,7 +15,7 @@ export default ({
     onDeleteImage 
 }) => {
     const images = imagePaths.map(path => {
-        const pathname = path.split('\\')[3]
+        const pathname = path.split('/')[3]
         const name = imageNames.find(name => name === pathname)
         
         return {
@@ -23,7 +23,7 @@ export default ({
             path
         }
     })
-    console.log(images);
+
     return (
         <>
             <Upload disable={disable} onUploadImage={onUploadImage} />
