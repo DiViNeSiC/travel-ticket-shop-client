@@ -3,6 +3,7 @@ import { GlobalContext } from "../../../context/contextProvider/provider"
 import login from '../../../context/actions/auth/login/login'
 import removeToken from '../../../context/actions/auth/login/removeToken'
 import isAuth from '../../../utils/authenticate/userAuth'
+import { useHistory } from "react-router-dom"
 
 export default () => {
     const { 
@@ -17,6 +18,8 @@ export default () => {
             } 
         }
     } = useContext(GlobalContext)
+
+    const history = useHistory()
 
     const [formData, setFormData] = useState({})
     const [rememberUser, setRememberUser] = useState(false)
@@ -55,7 +58,7 @@ export default () => {
         }
 
         if (token && isAuth()) {
-            window.location = '/#/dashboard'
+            history.push('/#/dashboard')
             removeToken(authDispatch)
         }
     }

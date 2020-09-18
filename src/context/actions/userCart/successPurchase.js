@@ -10,7 +10,7 @@ export default (payment) => async (dispatch) => {
     try {
         dispatch({ type: SUCCESS_PURCHASE_LOADING })
 
-        const postData = await axios.post(`/cart/success-purchase`, { payment })
+        const postData = await axios().post(`/cart/success-purchase`, { payment })
 
         dispatch({ 
             type: SUCCESS_PURCHASE_SUCCESS,

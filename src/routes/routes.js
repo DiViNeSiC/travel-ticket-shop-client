@@ -17,35 +17,52 @@ import NotFound from '../components/notFound/notFound'
 
 const routes = [
     {
-        path: '/',
-        component: IndexPageComponent,
-        title: 'Travel Ticket Shop',
-        isIndex: true,
-        exact: true
+        path: '/control/create/products/',
+        component: UploadProduct,
+        title: 'Upload Product',
+        isProtected: true,
     },
     {
-        path: '/register',
-        component: RegisterForm,
-        title: 'Register',
-        forAuth: true
+        path: '/control/products/:id',
+        component: ControlOneProducts,
+        title: 'Control Product',
+        isProtected: true,
     },
     {
-        path: '/login',
-        component: LoginForm,
-        title: 'Login',
-        forAuth: true
+        path: '/control/products',
+        component: ControlAllProducts,
+        title: 'Control Products',
+        isProtected: true,
+    },
+    {
+        path: '/dashboard/cart',
+        component: UserCart,
+        title: 'Cart',
+        isProtected: true,
+    },
+    {
+        path: '/dashboard/delete-account',
+        component: DeleteAccount,
+        title: 'Delete Account',
+        isProtected: true,
+    },
+    {
+        path: '/dashboard/change-password',
+        component: ChangePassword,
+        title: 'Change Password',
+        isProtected: true,
+    },
+    {
+        path: '/dashboard/settings',
+        component: UserSettings,
+        title: 'Settings',
+        isProtected: true,
     },
     {
         path: '/dashboard',
         component: DashboardComponent,
         title: 'Travel Ticket Shop',
-        protected: true,
-    },
-    {
-        path: '/forgot-password',
-        component: ForgotPass,
-        title: 'Forgot Password',
-        forAuth: true
+        isProtected: true,
     },
     {
         path: '/account-activation/:token',
@@ -60,28 +77,22 @@ const routes = [
         forAuth: true
     },
     {
-        path: '/dashboard/delete-account',
-        component: DeleteAccount,
-        title: 'Delete Account',
-        protected: true,
+        path: '/forgot-password',
+        component: ForgotPass,
+        title: 'Forgot Password',
+        forAuth: true
     },
     {
-        path: '/dashboard/change-password',
-        component: ChangePassword,
-        title: 'Change Password',
-        protected: true,
+        path: '/register',
+        component: RegisterForm,
+        title: 'Register',
+        forAuth: true
     },
     {
-        path: '/dashboard/settings',
-        component: UserSettings,
-        title: 'Settings',
-        protected: true,
-    },
-    {
-        path: '/dashboard/cart',
-        component: UserCart,
-        title: 'Cart',
-        protected: true,
+        path: '/login',
+        component: LoginForm,
+        title: 'Login',
+        forAuth: true
     },
     {
         path: '/product/:id',
@@ -89,29 +100,15 @@ const routes = [
         title: 'Travel Ticket Shop',
     },
     {
-        path: '/control/create/products/',
-        component: UploadProduct,
-        title: 'Upload Product',
-        protected: true,
-    },
-    {
-        path: '/control/products/:id',
-        component: ControlOneProducts,
-        title: 'Control Product',
-        protected: true,
-    },
-    {
-        path: '/control/products',
-        component: ControlAllProducts,
-        title: 'Control Products',
-        protected: true,
+        path: '/',
+        component: IndexPageComponent,
+        title: 'Travel Ticket Shop',
+        isIndex: true,
     },
     {
         path: '*',
         component: NotFound,
         title: 'Travel Ticket Shop',
-        isIndex: true,
-        exact: true
     }
 ]
 

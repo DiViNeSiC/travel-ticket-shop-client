@@ -10,7 +10,7 @@ export default (productId, quantity) => async (dispatch) => {
     try {
         dispatch({ type: ADD_TO_CART_LOADING })
 
-        const res = await axios
+        const res = await axios()
             .post(`/cart/add/${productId}`, { quantity })
 
         dispatch({ 

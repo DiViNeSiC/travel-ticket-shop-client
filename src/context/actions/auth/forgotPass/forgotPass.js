@@ -9,7 +9,7 @@ export default (email) => async (dispatch) => {
     try {
         dispatch({ type: FORGOT_PASS_LOADING })
 
-        const res = await axios.put(`/login/forgot-password`, { email })
+        const res = await axios().put(`/login/forgot-password`, { email })
 
         dispatch({ 
             type: FORGOT_PASS_SUCCESS,

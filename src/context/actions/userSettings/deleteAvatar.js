@@ -10,7 +10,7 @@ export default async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios
+        const res = await axios()
             .delete('/dashboard/settings/avatar/delete')
 
         dispatch({ 

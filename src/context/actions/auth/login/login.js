@@ -15,7 +15,7 @@ export default (formData, rememberUser) => async (dispatch) => {
     try {
         dispatch({ type: LOGIN_LOADING })
 
-        const res = await axios
+        const res = await axios()
             .post(`/login/${rememberUser}`, formData, config)
 
         dispatch({ 

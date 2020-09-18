@@ -10,7 +10,7 @@ export default (isIndex) => async (dispatch) => {
         dispatch({ type: GET_ALL_PRODUCTS_LOADING })
         const url = isIndex ? '/' : '/dashboard'
 
-        const res = await axios.get(`${url}`)
+        const res = await axios().get(`${url}`)
 
         dispatch({ 
             type: GET_ALL_PRODUCTS_SUCCESS,

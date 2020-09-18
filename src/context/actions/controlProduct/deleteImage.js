@@ -10,7 +10,7 @@ export default (productId, fileName) => async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios
+        const res = await axios()
             .delete(`/control/product/${productId}/${fileName}`)
 
         dispatch({

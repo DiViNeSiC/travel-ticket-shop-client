@@ -10,7 +10,7 @@ export default async (dispatch) => {
     try {
         dispatch({ type: REMOVE_ALL_LOADING })
 
-        const res = await axios.delete(`/cart/delete`)
+        const res = await axios().delete(`/cart/delete`)
 
         dispatch({ 
             type: REMOVE_ALL_SUCCESS,

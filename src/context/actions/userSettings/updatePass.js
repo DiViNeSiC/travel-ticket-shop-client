@@ -10,7 +10,7 @@ export default (formData) => async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios
+        const res = await axios()
             .put(
                 '/dashboard/settings/change-password', 
                 formData

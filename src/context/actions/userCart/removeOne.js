@@ -10,7 +10,7 @@ export default (productId) => async (dispatch) => {
     try {
         dispatch({ type: REMOVE_FROM_CART_LOADING })
 
-        const res = await axios
+        const res = await axios()
             .delete(`/cart/delete/${productId}`)
 
         dispatch({ 

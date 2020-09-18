@@ -9,7 +9,7 @@ export default async (dispatch) => {
     try {
         dispatch({ type: LOGOUT_USER_LOADING })
 
-        await axios.delete('/logout')
+        await axios().delete('/logout')
 
         dispatch({ type: LOGOUT_USER_SUCCESS })        
     } catch (err) {

@@ -10,7 +10,7 @@ export default async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios.get('/dashboard/settings')
+        const res = await axios().get('/dashboard/settings')
 
         dispatch({ 
             type: GET_USER_INFO,

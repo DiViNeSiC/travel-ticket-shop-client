@@ -10,7 +10,7 @@ export default async (dispatch) => {
     try {
         dispatch({ type: GET_ALL_CART_PRODUCTS_LOADING })
 
-        const res = await axios.get('/dashboard/cart')
+        const res = await axios().get('/dashboard/cart')
 
         dispatch({ 
             type: GET_ALL_CART_PRODUCTS_SUCCESS,

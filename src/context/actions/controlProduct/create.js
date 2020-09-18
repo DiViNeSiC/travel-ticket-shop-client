@@ -16,7 +16,7 @@ export default (formData) => async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios
+        const res = await axios()
             .post('/control/product', formData, config)
 
         dispatch({

@@ -1,37 +1,43 @@
 import axios from 'axios'
-import headers from './headers'
+import { BASE_URL_DEVELOPMENT } from '../../constants/api'
 
-const baseURL = 
-    // process.env.REACT_APP_SERVER_BASE_URL ? 
-    // process.env.REACT_APP_SERVER_BASE_URL : 
-    'http://localhost:4000'
+export default () => {
+    const baseURL = BASE_URL_DEVELOPMENT
+    const authToken = localStorage.getItem('TRAVEL_SHOP_AUTH_TOKEN')
+    
+    let headers = {}
 
-const axiosInstance = axios.create({ 
-    baseURL,
-    headers
-}) 
+    if (authToken) {
+        headers.Authorization = `Bearer ${authToken}`
+    }
+    
+    const axiosInstance = axios.create({ 
+        baseURL,
+        headers
+    }) 
 
-axiosInstance.interceptors.response.use((response) => 
-    new Promise((resolve, reject) => {
-        resolve(response)
-    }),
-    (err) => {
-        if (!err.response) {
+    axiosInstance.interceptors.response.use((response) => 
+        new Promise((resolve, reject) => {
+            resolve(response)
+        }),
+        (err) => {
+            if (!err.response) {
+                return new Promise((resolve, reject) => {
+                    reject(err)
+                }) 
+            }
+    
+            if (err.response.status === 401 && headers.Authorization) {
+                localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
+                localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
+                localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
+            }
+            
             return new Promise((resolve, reject) => {
                 reject(err)
-            }) 
+            })
         }
+    )
 
-        if (err.response.status === 401 && headers.Authorization) {
-            localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
-            localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
-            localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
-        }
-        
-        return new Promise((resolve, reject) => {
-            reject(err)
-        })
-    }
-)
-
-export default axiosInstance
+    return axiosInstance
+}

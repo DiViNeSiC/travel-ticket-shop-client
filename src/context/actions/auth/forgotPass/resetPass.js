@@ -9,7 +9,7 @@ export default (newPassword, token) => async (dispatch) => {
     try {
         dispatch({ type: RESET_PASS_LOADING })
 
-        const res = await axios
+        const res = await axios()
             .put(`/login/reset-password/${token}`, { newPassword })
 
         dispatch({ 

@@ -15,7 +15,7 @@ export default (formData, role) => async (dispatch) => {
     try {
         dispatch({ type: REGISTER_LOADING })
 
-        const res = await axios
+        const res = await axios()
             .post(`/register/${role}`, formData, config)
 
         dispatch({ 

@@ -9,7 +9,7 @@ export default (token) => async (dispatch) => {
     try {
         dispatch({ type: ACTIVE_ACCOUNT_LOADING })
 
-        const res = await axios.post(`/register/activation/${token}`)
+        const res = await axios().post(`/register/activation/${token}`)
 
         dispatch({ 
             type: ACTIVE_ACCOUNT_SUCCESS,

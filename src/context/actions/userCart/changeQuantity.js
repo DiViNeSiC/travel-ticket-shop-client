@@ -10,7 +10,7 @@ export default (productId, quantity) => async (dispatch) => {
     try {
         dispatch({ type: CHANGE_QUANTITY_LOADING })
 
-        const res = await axios
+        const res = await axios()
             .put(`/cart/change-quantity/${productId}`, { quantity })
 
         dispatch({ 

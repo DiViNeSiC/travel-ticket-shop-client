@@ -10,7 +10,7 @@ export default (formData, productId) => async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios
+        const res = await axios()
             .put(`/control/product/${productId}`, formData)
 
         dispatch({

@@ -10,7 +10,7 @@ export default (productId) => async (dispatch) => {
     try {
         dispatch({ type: LOADING })
 
-        const res = await axios.get(`/control/product/${productId}`)
+        const res = await axios().get(`/control/product/${productId}`)
 
         dispatch({
             type: GET_ONE_PRODUCT,
