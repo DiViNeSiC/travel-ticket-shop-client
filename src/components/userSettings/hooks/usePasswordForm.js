@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react'
 import { GlobalContext } from '../../../context/contextProvider/provider'
 import updatePassword from '../../../context/actions/userSettings/updatePass'
 import deleteAcc from '../../../context/actions/userSettings/deleteAcc'
+import { useHistory } from 'react-router-dom'
 
 export default () => {
     const {
@@ -14,6 +15,7 @@ export default () => {
         }
     } = useContext(GlobalContext)
 
+    const history = useHistory()
     const [formData, setFormData] = useState({})
 
     const onChange = (e) => {
@@ -43,7 +45,7 @@ export default () => {
             localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
             localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
             
-            return window.location = '/login'
+            return history.push('/login') 
         }
     }
 
