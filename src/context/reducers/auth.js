@@ -47,7 +47,6 @@ export default (state, { payload, type }) => {
         case LOGIN_SUCCESS: {
             return {
                 ...state,
-                segmentShow: true,
                 login: {
                     loading: false,
                     error: null,

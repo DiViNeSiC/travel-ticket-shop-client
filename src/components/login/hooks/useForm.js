@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react"
-// import { useHistory } from "react-router-dom"
 import { GlobalContext } from "../../../context/contextProvider/provider"
 import login from '../../../context/actions/auth/login/login'
 import removeToken from '../../../context/actions/auth/login/removeToken'
+import isAuth from '../../../utils/authenticate/userAuth'
 
 export default () => {
     const { 
@@ -17,8 +17,6 @@ export default () => {
             } 
         }
     } = useContext(GlobalContext)
-
-    // const history = useHistory()
 
     const [formData, setFormData] = useState({})
     const [rememberUser, setRememberUser] = useState(false)
@@ -40,26 +38,29 @@ export default () => {
         await login(formData, rememberUser)(authDispatch)
     }
 
-    const saveToken = () => {
+    const saveUserInfo = () => {
         if (user?.avatarImagePath) {
-            localStorage.setItem('TRAVEL_SHOP_AVATAR_LOCATION', user.avatarImagePath)
+            localStorage
+                .setItem('TRAVEL_SHOP_AVATAR_LOCATION', user.avatarImagePath)
         }
 
         if (user?.role === 'admin') {
-            localStorage.setItem('TRAVEL_SHOP_USER_ROLE', user.role)
+            localStorage
+                .setItem('TRAVEL_SHOP_USER_ROLE', user.role)
         }
         
         if (token) {
-            localStorage.setItem('TRAVEL_SHOP_AUTH_TOKEN', token)
+            localStorage
+                .setItem('TRAVEL_SHOP_AUTH_TOKEN', token)
         }
 
-        if (localStorage.TRAVEL_SHOP_AUTH_TOKEN && token) {
-            window.location.reload()
+        if (token && isAuth()) {
+            window.location = '/dashboard'
             removeToken(authDispatch)
         }
     }
 
-    useEffect(saveToken, [token])
+    useEffect(saveUserInfo, [token])
 
     return {
         onChange,

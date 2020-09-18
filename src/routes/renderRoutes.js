@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory, Route } from 'react-router-dom'
+import { GlobalContext } from '../context/contextProvider/provider'
 import isAuth from '../utils/authenticate/userAuth'
 
 export default (route) => {
+    const { authState: { login: { token } } } = useContext(GlobalContext)
     const history = useHistory()
     document.title = route.title
 
-    if (route.protected && !isAuth()) {
+    if (route.protected && !isAuth() && token != null) {
         history.push('/login')
     }
 

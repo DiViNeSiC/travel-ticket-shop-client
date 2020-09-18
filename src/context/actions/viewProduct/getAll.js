@@ -7,9 +7,9 @@ import {
 
 export default (isIndex) => async (dispatch) => {
     try {
-        const url = isIndex ? '/' : '/dashboard'
         dispatch({ type: GET_ALL_PRODUCTS_LOADING })
-        
+        const url = isIndex ? '/' : '/dashboard'
+
         const res = await axios.get(`${url}`)
 
         dispatch({ 
