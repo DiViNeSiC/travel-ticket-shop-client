@@ -6,7 +6,7 @@ export default ({ error, loading }) => {
         <>
             {!error && 
                 <Dimmer className="dimmer" active={loading} inverted>
-                    <Loader inverted>Loading Products...</Loader>
+                    <Loader inverted>Please Wait...</Loader>
                 </Dimmer>
             }
         </>

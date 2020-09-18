@@ -153,6 +153,14 @@
     .edit-prod-form .edit-prod-field input {
         width: 100% !important;
     }
+    
+    .edit-prod-container .btns-container .btn {
+        width: 100%;
+    }
+
+    .edit-prod-container .btn-container {
+        width: 70%;
+    }
 }
 
 
@@ -181,10 +189,6 @@
     }
         
     .edit-prod-container .btn-container {
-        width: 100%;
-    }
-        
-    .edit-prod-container .btns-container .btn {
         width: 100%;
     }
 }
