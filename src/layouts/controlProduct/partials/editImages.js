@@ -17,12 +17,13 @@ export default ({
     const images = imagePaths.map(path => {
         const pathname = path.split('\\')[3]
         const name = imageNames.find(name => name === pathname)
-
+        
         return {
             name,
             path
         }
     })
+    console.log(images);
     return (
         <>
             <Upload disable={disable} onUploadImage={onUploadImage} />
