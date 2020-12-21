@@ -1,24 +1,15 @@
 import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
-import Segment from '../segment/segment'
+import Segment from '../Segment/segment'
 import { Link } from 'react-router-dom'
 
-export default ({ 
-    onChange,
-    onSubmit,
-    forgotPassDispatch,
-    loading,
-    error,
-    successMessage,
-    segmentShow,
-    type
-}) => {
+export default ({ onChange, onSubmit, authDispatch, loading, error, successMessage, segmentShow, type }) => {
     return (
         <div className="reset-form-container">
             <Form onSubmit={onSubmit}>
                 <div>
                     <Segment
-                        dispatch={forgotPassDispatch}
+                        dispatch={authDispatch}
                         message={error ? error.message : successMessage}
                         show={segmentShow}
                         type={type}

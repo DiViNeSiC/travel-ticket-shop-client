@@ -1,17 +1,17 @@
-@import './imports/navbar.css';
-@import './imports/login.css';
-@import './imports/register.css';
-@import './imports/form.css';
-@import './imports/segmentMessage.css';
-@import './imports/mainPageSearchBar.css';
-@import './imports/mainPageProducts.css';
-@import './imports/productDetails.css';
-@import './imports/cart.css';
-@import './imports/resetPass.css';
-@import './imports/settings.css';
-@import './imports/productControl.css';
-@import './imports/productUpload.css';
-@import './imports/editProduct.css';
+@import './Imports/navbar.css';
+@import './Imports/login.css';
+@import './Imports/register.css';
+@import './Imports/form.css';
+@import './Imports/segmentMessage.css';
+@import './Imports/mainPageSearchBar.css';
+@import './Imports/mainPageProducts.css';
+@import './Imports/productDetails.css';
+@import './Imports/cart.css';
+@import './Imports/resetPass.css';
+@import './Imports/settings.css';
+@import './Imports/productControl.css';
+@import './Imports/productUpload.css';
+@import './Imports/editProduct.css';
 
 *,
 *::before,

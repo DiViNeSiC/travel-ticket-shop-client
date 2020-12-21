@@ -1,55 +1,35 @@
 import { useContext, useState, useEffect } from "react"
-import { GlobalContext } from "../../../context/contextProvider/provider"
-import { FORGOT_PASS_CLEAR } from '../../../constants/clearMessage'
-import forgotPass from '../../../context/actions/auth/forgotPass/forgotPass'
-import clearMessage from '../../../context/actions/auth/clearMessage/clearMessage'
+import { GlobalContext } from "../../../Context/ContextProvider/provider"
+import { forgotPass, clearMessage } from '../../../Context/Auth/actions'
+import { FORGOT_PASS_CLEAR } from '../../../Constants/authActions'
 
 export default () => {
     const { 
-        forgotPassDispatch,  
-        forgotPassState: {
-            segmentShow,
-            forgot: {
-                loading,
-                error,
-                successMessage
-            } 
-        }
+        authDispatch,  
+        authState: { segmentShow, forgot: { loading, error, successMessage } }
     } = useContext(GlobalContext)
-
     const [email, setEmail] = useState()
 
-    const onChange = (e) => {
-        setEmail(e.target.value)
-    }
+    const onChange = (e) => { setEmail(e.target.value) }
 
-    const onSubmit = () => {
-        handleForgotPass()
-    }
+    const onSubmit = () => { handleForgotPass() }
 
-    const handleForgotPass = async () => {
-        await forgotPass(email)(forgotPassDispatch)
-    }
+    const handleForgotPass = async () => { await forgotPass(email)(authDispatch) }
 
     const enableButton = () => {
-        if (successMessage) {
-            setTimeout(() => {
-                clearMessage(FORGOT_PASS_CLEAR)(forgotPassDispatch)
-            }, 12000)
-        }
+        if (successMessage)
+            setTimeout(() => { clearMessage(FORGOT_PASS_CLEAR)(authDispatch) }, 12000)
     }
 
     useEffect(enableButton, [successMessage])
-
     return {
+        error,
+        loading,
         onChange,
         onSubmit,
-        forgotPassDispatch,
-        loading,
-        error,
         segmentShow,
+        authDispatch,
         type: error ? 'error' : 'success',
-        successMessage: successMessage ? 
-            successMessage.message : null
+        successMessage: successMessage ? successMessage.message : null
     }
 }

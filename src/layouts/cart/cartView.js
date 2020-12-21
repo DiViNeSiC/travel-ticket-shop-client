@@ -1,32 +1,32 @@
 import React from 'react'
-import Dimmer from '../segment/dimmer'
-import SegmentShow from '../segment/segment'
-import RenderProducts from './partials/renderCartProducts'
-import Modal from './partials/modal'
+import Dimmer from '../Segment/dimmer'
+import SegmentShow from '../Segment/segment'
+import RenderProducts from './Partials/renderCartProducts'
+import Modal from './Partials/modal'
 import { Button, Icon, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import PaypalButton from './partials/paypalButton'
+import PaypalButton from './Partials/paypalButton'
 
 export default ({
-    openQuantityModal,
-    closeQuantityModal,
-    incrementQuantity,
-    decrementQuantity,
-    onChangeQuantity,
-    onRemoveOne,
-    onRemoveAll,
-    userCartDispatch,
-    loading,
+    type,
     error,
+    paypal,
+    loading,
+    details,
     success,
     quantity,
-    totalPrice,
-    cartProducts,
-    details,
-    segmentShow,
     showModal,
-    type,
-    paypal
+    totalPrice,
+    segmentShow,
+    onRemoveOne,
+    onRemoveAll,
+    cartProducts,
+    userCartDispatch,
+    onChangeQuantity,
+    openQuantityModal,
+    decrementQuantity,
+    incrementQuantity,
+    closeQuantityModal,
 }) => {
     return (
         <div className="cart-container">

@@ -1,13 +1,7 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
 
-export default ({
-    closeQuantityModal,
-    decrementQuantity,
-    incrementQuantity,
-    quantity,
-    onChangeQuantity
-}) => {
+export default ({ closeQuantityModal, decrementQuantity, incrementQuantity, quantity, onChangeQuantity }) => {
     return (
         <div className="modal-container">
             <div className="modal">

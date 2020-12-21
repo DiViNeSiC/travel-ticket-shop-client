@@ -1,23 +1,14 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import Segment from '../segment/segment'
-import Dimmer from '../segment/dimmer'
+import Segment from '../Segment/segment'
+import Dimmer from '../Segment/dimmer'
 
-export default ({
-    onChange,
-    onDeleteAcc,
-    userSettingsDispatch,
-    loading,
-    segmentShow,
-    error,
-    success,
-    type
-}) => {
+export default ({ onChange, onDeleteAcc, userControlsDispatch, loading, segmentShow, error, success, type }) => {
     return (
         <Form className="delete-acc-form" onSubmit={onDeleteAcc}>
             <div>
                 <Segment
-                    dispatch={userSettingsDispatch}
+                    dispatch={userControlsDispatch}
                     message={error ? error : success}
                     show={segmentShow}
                     type={type}

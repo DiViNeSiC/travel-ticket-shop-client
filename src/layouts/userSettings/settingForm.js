@@ -1,29 +1,16 @@
 import React from 'react'
-import Segment from '../segment/segment'
-import Dimmer from '../segment/dimmer'
-import AvatarForm from '../avatar/avatarSettings'
+import Segment from '../Segment/segment'
+import Dimmer from '../Segment/dimmer'
+import AvatarForm from '../Avatar/avatarSettings'
 import { Form, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-export default ({
-    onChangeAvatar,
-    onDeleteAvatar,
-    onChange,
-    onSubmit,
-    userSettingsDispatch,
-    loading,
-    segmentShow,
-    error,
-    success,
-    formData,
-    user,
-    type
-}) => {
+export default ({ onChangeAvatar, onDeleteAvatar, onChange, onSubmit, userControlsDispatch, loading, segmentShow, error, success, formData, user, type }) => {
     return (
         <div className="settings-container">
             <div>
                 <Segment
-                    dispatch={userSettingsDispatch}
+                    dispatch={userControlsDispatch}
                     message={error ? error : success}
                     show={segmentShow}
                     type={type}

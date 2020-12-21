@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from "react"
-import defaultImage from '../../../assets/images/default-profile-Image.png'
+import defaultImage from '../../../Assets/Images/default-profile-Image.png'
 
 export default () => {
+    const avatarInputRef = useRef()
     const [selectedFile, setSelectedFile] = useState()
     const [displayFile, setDisplayFile] = useState(defaultImage)
-
-    const avatarInputRef = useRef()
 
     useEffect(() => {
         if(selectedFile == null || selectedFile === defaultImage) { 
@@ -15,17 +14,12 @@ export default () => {
 
         const objectUrl = URL.createObjectURL(selectedFile)        
         setDisplayFile(objectUrl)
-
         return () => URL.revokeObjectURL(objectUrl)
     }, [selectedFile])
 
-    const onSelectFile = e => {
-        const { files } = e.target
-        if (files[0] == null || files.length === 0) {
-            return setSelectedFile(defaultImage)
-        }
-
-        setSelectedFile(e.target.files[0])
+    const onSelectFile = ({ target: { files }}) => {
+        if (files[0] == null || files.length === 0) return setSelectedFile(defaultImage)
+        setSelectedFile(files[0])
     }
 
     const onClearFile = () => {
@@ -34,10 +28,10 @@ export default () => {
     }
 
     return { 
-        selectedFile, 
+        onClearFile,
         displayFile, 
-        avatarInputRef, 
         onSelectFile, 
-        onClearFile 
+        selectedFile, 
+        avatarInputRef,
     }
 }

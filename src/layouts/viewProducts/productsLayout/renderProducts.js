@@ -2,13 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Segment, Header, Icon } from 'semantic-ui-react'
 import ImageSlider from './imageSlider'
-import Continent from './continent'
+import Continent from './continentShow'
 
-export default ({  
-    allProducts, 
-    products, 
-    length 
-}) => {
+export default ({ allProducts, products, length }) => {
     return (
         <>
             {allProducts.length > 0 ? 

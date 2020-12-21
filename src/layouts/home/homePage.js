@@ -1,24 +1,21 @@
 import React from 'react'
-import Products from '../viewProducts/productsLayout/renderProducts'
+import Products from '../ViewProducts/ProductsLayout/renderProducts'
 import { Icon, Button } from 'semantic-ui-react'
-import SegmentError from '../segment/segment'
-import Dimmer from '../segment/dimmer'
+import SegmentError from '../Segment/segment'
+import Dimmer from '../Segment/dimmer'
 import SearchForm from './searchForm'
 
-export default ({ 
-    search,
-    products: {
-        handleIncrease,
-        loading,
-        error,
-        limit,
-        resultLength,
-        resultProducts,
-        segmentShow,
-        allProducts,
-        viewProductDispatch
-    }
-}) => {
+export default ({ search, products: {
+    error,
+    limit,
+    loading,
+    allProducts,
+    segmentShow,
+    resultLength,
+    handleIncrease,
+    resultProducts,
+    viewProductDispatch
+}}) => {
     return (
         <div className="home-page-container">
             <h1 className="main-header">

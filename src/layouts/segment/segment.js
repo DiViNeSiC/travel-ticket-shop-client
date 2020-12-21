@@ -1,33 +1,25 @@
 import React, { useEffect } from "react"
 import { Message, Icon, Button } from "semantic-ui-react"
 import { useLocation, useHistory } from "react-router-dom"
-import { HIDE_SEGMENT } from '../../constants/hideSegment'
+import { HIDE_SEGMENT } from '../../Constants/hideSegment'
 
 export default ({ message, show, dispatch, type, redirect }) => {
+    const history = useHistory()
     const { pathname } = useLocation() 
 
-    const history = useHistory()
-
     const hide = () => {
-        if (show) {
-            setTimeout(() => {
-                dispatch({ type: HIDE_SEGMENT })
-            }, 12000)
-        }
+        if (show) setTimeout(() => { dispatch({ type: HIDE_SEGMENT }) }, 12000)
     }
 
     const setShow = () => {
         if (show) {
             dispatch({ type: HIDE_SEGMENT })
-            if (redirect != null) {
-                history.push(redirect)
-            }
+            if (redirect != null) history.push(redirect)
         }
     }
 
     useEffect(hide, [show]) 
     useEffect(setShow, [pathname]) 
-
     return (
         <div className="segment-container">
             {show && 

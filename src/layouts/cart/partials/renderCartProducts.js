@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Button, Header } from 'semantic-ui-react'
-import ImageSlider from '../../viewProducts/productsLayout/imageSlider'
-import Continent from '../../viewProducts/productsLayout/continent'
+import ImageSlider from '../../ViewProducts/ProductsLayout/imageSlider'
+import Continent from '../../ViewProducts/ProductsLayout/continentShow'
 import { Link } from 'react-router-dom'
 
 export default ({ products, details, onRemoveOne, openQuantityModal }) => {
