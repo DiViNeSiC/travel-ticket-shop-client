@@ -1,41 +1,50 @@
 import { useContext, useEffect, useState } from "react"
-import { GlobalContext } from "../../../Context/ContextProvider/provider"
-import { 
-    changeQuantity,
-    getCartProducts,
-    removeOneProduct,
-    quantityModalShow,
-    removeAllProducts,
-} from '../../../Context/UserCart/actions'
+import { GlobalContext } from "../../../context/contextProvider/provider"
+import getProducts from '../../../context/actions/userCart/getProducts'
+import quantityModal from '../../../context/actions/userCart/quantityModal'
+import changeQuantity from '../../../context/actions/userCart/changeQuantity'
+import removeAll from '../../../context/actions/userCart/removeAll'
+import removeOne from '../../../context/actions/userCart/removeOne'
+
 import {
     HIDE_QUANTITY_MODAL,
     SHOW_QUANTITY_MODAL
-} from '../../../Constants/userCart' 
+} from '../../../constants/userCart' 
 
 export default () => {
     const {
         userCartDispatch,
         userCartState: {
-            success, totalPrice,
-            cartProducts: products,
+            loading,
+            error,
+            success,
+            segmentShow,
+            details,
+            totalPrice,
             quantityModal: showModal,
-            details, loading, segmentShow, error,
+            cartProducts: products,
         }
     } = useContext(GlobalContext)
+
     const [quantity, setQuantity] = useState()
     const [productId, setProductId] = useState()
 
-    const onLoad = () => { handleGetAllProducts() }
-    const handleGetAllProducts = async () => { await getCartProducts(userCartDispatch) }
+    const onLoad = () => {
+        handleGetAll()
+    }
+    
+    const handleGetAll = async () => {
+        await getProducts(userCartDispatch)
+    }
     
     const openQuantityModal = (productId, quantity) => {
         setStatus(productId, quantity)
-        quantityModalShow(SHOW_QUANTITY_MODAL)(userCartDispatch)
+        quantityModal(SHOW_QUANTITY_MODAL)(userCartDispatch)
     }
 
     const closeQuantityModal = () => {
         setStatus(null, null)
-        quantityModalShow(HIDE_QUANTITY_MODAL)(userCartDispatch)
+        quantityModal(HIDE_QUANTITY_MODAL)(userCartDispatch)
     }
 
     const setStatus = (productId, quantity) => {
@@ -44,51 +53,65 @@ export default () => {
     }
 
     const incrementQuantity = () => {
-        if (quantity < 10) setQuantity(prevQuantity => prevQuantity + 1)
+        if (quantity < 10) {
+            setQuantity(prevQuantity => prevQuantity + 1)
+        }
     } 
     
     const decrementQuantity = () => {
-        if (quantity > 1) setQuantity(prevQuantity => prevQuantity - 1)
+        if (quantity > 1) {
+            setQuantity(prevQuantity => prevQuantity - 1)
+        }
+    } 
+
+    const onChangeQuantity = () => {
+        handleChangeQuantity()
+        closeQuantityModal()
     }
 
-    const onChangeQuantity = () => { handleChangeQuantity(); closeQuantityModal() }
 
     const handleChangeQuantity = async () => {
         await changeQuantity(productId, quantity)(userCartDispatch)
     }
 
-    const onRemoveOne = (productId) => { handleRemoveOne(productId) }
-
-    const handleRemoveOne = async (productId) => {
-        await removeOneProduct(productId)(userCartDispatch)
+    const onRemoveOne = (productId) => {
+        handleRemoveOne(productId)
     }
 
-    const onRemoveAll = () => { handleRemoveAll() }
+    const handleRemoveOne = async (productId) => {
+        await removeOne(productId)(userCartDispatch)
+    }
+
+    const onRemoveAll = () => {
+        handleRemoveAll()
+    }
 
     const handleRemoveAll = async () => {
-        await removeAllProducts(userCartDispatch)
+        await removeAll(userCartDispatch)
     } 
 
     useEffect(onLoad, [])
+
     const cartProducts = products.length ? products : null
+
     return {
-        error,
-        loading,
-        details,
-        success,
-        quantity,
-        showModal,
-        totalPrice,
-        segmentShow,
+        openQuantityModal,
+        closeQuantityModal,
+        incrementQuantity,
+        decrementQuantity,
+        onChangeQuantity,
         onRemoveOne,
         onRemoveAll,
-        cartProducts,
         userCartDispatch,
-        onChangeQuantity,
-        openQuantityModal,
-        decrementQuantity,
-        incrementQuantity,
-        closeQuantityModal,
-        type: error ? 'error' : 'success',
+        loading,
+        error,
+        quantity,
+        success,
+        cartProducts,
+        totalPrice,
+        details,
+        segmentShow,
+        showModal,
+        type: error ? 'error' : 'success'
     }
 }

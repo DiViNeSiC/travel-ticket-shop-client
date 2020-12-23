@@ -3,7 +3,13 @@ import { Image, Button } from 'semantic-ui-react'
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg']
 
-export default ({ selectedFile, displayFile, avatarInputRef, onSelectFile, onClearFile }) => {
+export default ({ 
+    selectedFile, 
+    displayFile, 
+    avatarInputRef, 
+    onSelectFile, 
+    onClearFile  
+}) => {
     return (
         <div className="avatar-section">
             <input

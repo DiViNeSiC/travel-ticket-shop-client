@@ -1,17 +1,30 @@
 import React, { useRef } from 'react'
-import defaultAvatar from '../../Assets/Images/default-profile-Image.png'
+import defaultAvatar from '../../assets/images/default-profile-Image.png'
 import { Button } from 'semantic-ui-react'
-import { BASE_URL_DEVELOPMENT, BASE_URL_PRODUCTION } from '../../Constants/api'
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg']
 
-export default ({ onChangeAvatar, onDeleteAvatar, currentAvatar }) => {
+export default ({ 
+    onChangeAvatar,
+    onDeleteAvatar,
+    currentAvatar
+}) => {
     const avatarInputRef = useRef()
 
-    const onSelect = ({ target: { files }}) => { onChangeAvatar(files[0]) }
-    
-    const backEndUrl = process.env.NODE_ENV === 'production' ? BASE_URL_PRODUCTION : BASE_URL_DEVELOPMENT
-    const avatar = currentAvatar ? `${backEndUrl}${currentAvatar}` : defaultAvatar
+    const backEndUrl = 
+        process.env.REACT_APP_SERVER_BASE_URL ? 
+        process.env.REACT_APP_SERVER_BASE_URL : 
+        'http://localhost:3001'
+
+    const avatar = 
+        currentAvatar ?
+        `${backEndUrl}${currentAvatar}` :
+        defaultAvatar
+
+    const onSelect = (e) => {
+        const { files } = e.target
+        onChangeAvatar(files[0])
+    }
 
     return (
         <div className="image-settings">

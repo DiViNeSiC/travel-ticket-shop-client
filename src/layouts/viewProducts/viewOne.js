@@ -1,9 +1,22 @@
 import React from 'react'
-import Segment from '../Segment/segment'
-import Dimmer from '../Segment/dimmer'
-import RenderOneProduct from './ProductsLayout/renderOneProduct'
+import Segment from '../segment/segment'
+import Dimmer from '../segment/dimmer'
+import RenderOneProduct from './productsLayout/renderOneProduct'
 
-export default ({ onAddCart, onQuantityChange, loading, error, cartSuccess, segmentShow, dispatch, isAuth, product, type, quantity, details }) => {
+export default ({ 
+    onAddCart,
+    onQuantityChange,
+    loading,
+    error, 
+    cartSuccess,
+    segmentShow,
+    dispatch,
+    isAuth,
+    product,
+    type,
+    quantity,
+    details
+}) => {
     return (
         <div className="view-container">
             <div>

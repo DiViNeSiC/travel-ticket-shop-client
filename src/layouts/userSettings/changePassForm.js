@@ -1,14 +1,23 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import Segment from '../Segment/segment'
-import Dimmer from '../Segment/dimmer'
+import Segment from '../segment/segment'
+import Dimmer from '../segment/dimmer'
 
-export default ({ onChange, onSubmit, userControlsDispatch, loading, segmentShow, error, success, type }) => {
+export default ({
+    onChange,
+    onSubmit,
+    userSettingsDispatch,
+    loading,
+    segmentShow,
+    error,
+    success,
+    type
+}) => {
     return (
         <Form className="change-pass-form" onSubmit={onSubmit}>
             <div>
                 <Segment
-                    dispatch={userControlsDispatch}
+                    dispatch={userSettingsDispatch}
                     message={error ? error : success}
                     show={segmentShow}
                     type={type}

@@ -1,38 +1,53 @@
 import { useContext, useEffect } from "react"
-import { GlobalContext } from '../../../Context/ContextProvider/provider'
+import { GlobalContext } from '../../../context/contextProvider/provider'
 import { useLocation, useHistory } from "react-router-dom"
-import { logout } from '../../../Context/Auth/actions'
-import userAuth from '../../../Utils/Authenticate/userAuth'
+import logout from '../../../context/actions/auth/logout/logout'
+import userAuth from '../../../utils/authenticate/userAuth'
 
 export default () => {
     const { 
-        authDispatch,
-        authState: { segmentShow, logout: { loading, error, success } }
+        authDispatch,  
+        authState: {
+            segmentShow,
+            logout: {
+                loading,
+                error,
+                success
+            } 
+        }
     } = useContext(GlobalContext)
 
-    const isAuth = userAuth()
+    const { pathname } = useLocation()
     const history = useHistory()
-    const { pathname: pathName } = useLocation()
+    const isAuth = userAuth()
 
-    const onClick = () => { handleLogout() }
-    const handleLogout = async () => { await logout(authDispatch) }
+    const onClick = () => {
+        handleLogout()
+    }
+
+    const handleLogout = async () => {
+        await logout(authDispatch)
+    }
 
     const deleteToken = () => {
-        if (!success) return
-        localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
-        localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
-        localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
-        history.push('/login')
+        if (success) {
+            localStorage.removeItem('TRAVEL_SHOP_AUTH_TOKEN')
+            localStorage.removeItem('TRAVEL_SHOP_AVATAR_LOCATION')
+            localStorage.removeItem('TRAVEL_SHOP_USER_ROLE')
+            
+            history.push('/login')
+        }
     }
 
     useEffect(deleteToken, [success])
+
     return {
-        error,
-        isAuth,
         onClick,
         loading,
-        pathName,
+        error,
         segmentShow,
         authDispatch,
+        isAuth,
+        pathName: pathname
     }
 }

@@ -1,37 +1,60 @@
 import React, { createContext, useReducer } from 'react'
-import authReducer from '../Auth/reducer'
-import authInitial from '../Auth/initialStates'
-import productControlsReducer from '../ProductControl/reducer'
-import productControlsInitial from '../ProductControl/initialStates'
-import userCartReducer from '../UserCart/reducer'
-import userCartInitial from '../UserCart/initialStates'
-import userControlsReducer from '../UserControls/reducer'
-import userControlsInitial from '../UserControls/initialStates'
-import viewProductsReducer from '../ViewProducts/reducer'
-import viewProductsInitial from '../ViewProducts/initialStates'
+import authReducer from '../reducers/auth'
+import authStates from '../initialStates/auth'
+import forgotPassReducer from '../reducers/forgotPass'
+import forgotPassStates from '../initialStates/forgotPass'
+import viewProductReducer from '../reducers/viewProduct'
+import viewProductStates from '../initialStates/viewProduct'
+import userCartReducer from '../reducers/userCart'
+import userCartStates from '../initialStates/userCart'
+import userSettingsReducer from '../reducers/userSettings'
+import userSettingsStates from '../initialStates/userSettings'
+import controlProductReducer from '../reducers/controlProduct'
+import controlProductStates from '../initialStates/controlProduct'
 
 export const GlobalContext = createContext()
 
 export const GlobalProvider = ({ children }) => {
-    const [authState, authDispatch] = useReducer(authReducer, authInitial)
-    const [viewProductState, viewProductDispatch] = useReducer(viewProductsReducer, viewProductsInitial)
-    const [userCartState, userCartDispatch] = useReducer(userCartReducer, userCartInitial)
-    const [userControlsState, userControlsDispatch] = useReducer(userControlsReducer, userControlsInitial)
-    const [productControlsState, productControlsDispatch] = useReducer(productControlsReducer, productControlsInitial)
+    const [authState, authDispatch] = useReducer(
+        authReducer, authStates
+    )
+
+    const [forgotPassState, forgotPassDispatch] = useReducer(
+        forgotPassReducer, forgotPassStates
+    )
+
+    const [viewProductState, viewProductDispatch] = useReducer(
+        viewProductReducer, viewProductStates
+    )
+
+    const [userCartState, userCartDispatch] = useReducer(
+        userCartReducer, userCartStates
+    )
+
+    const [userSettingsState, userSettingsDispatch] = useReducer(
+        userSettingsReducer, userSettingsStates
+    )
+
+    const [controlProductState, controlProductDispatch] = useReducer(
+        controlProductReducer, controlProductStates
+    )
+
 
     return (
         <GlobalContext.Provider 
             value={{
                 authState,
-                userCartState,
                 viewProductState,
-                userControlsState,
-                productControlsState,
+                forgotPassState,
+                userCartState,
+                userSettingsState,
+                controlProductState,
+                forgotPassDispatch,
                 authDispatch,
-                userCartDispatch,
                 viewProductDispatch,
-                userControlsDispatch,
-                productControlsDispatch,
+                userCartDispatch,
+                userSettingsDispatch,
+                controlProductDispatch
             }}
         >
             {children}

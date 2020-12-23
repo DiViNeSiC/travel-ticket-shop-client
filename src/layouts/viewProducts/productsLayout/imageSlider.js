@@ -1,12 +1,13 @@
 import React from 'react'
 import Slider from 'react-slick'
 import { Image } from 'semantic-ui-react'
-import defaultImage from '../../../Assets/Images/defaultImage.png'
-import { BASE_URL_DEVELOPMENT, BASE_URL_PRODUCTION } from '../../../Constants/api'
+import defaultImage from '../../../assets/images/defaultImage.png'
 
 export default ({ images }) => {
-    const productImages = images.length ? images : [defaultImage]
-    const backEndUrl = process.env.NODE_ENV === 'production' ? BASE_URL_PRODUCTION : BASE_URL_DEVELOPMENT
+    const backEndUrl = 
+        process.env.REACT_APP_SERVER_BASE_URL ? 
+        process.env.REACT_APP_SERVER_BASE_URL : 
+        'http://localhost:3001'
     
     const settings = {
         dots: false,
@@ -21,6 +22,8 @@ export default ({ images }) => {
         className: 'slides',
     }
 
+    const productImages = images.length ? images : [defaultImage]
+        
     return (
         <Slider className="product-slider" {...settings} > 
             {productImages.map((image, index) => 

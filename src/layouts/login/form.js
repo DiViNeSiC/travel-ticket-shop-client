@@ -1,9 +1,18 @@
 import React from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-import Segment from '../Segment/segment'
+import Segment from '../segment/segment'
 import { Link } from 'react-router-dom'
 
-export default ({ onChange, onChangeRememberUser, onSubmit, loading, error, segmentShow, authDispatch, type }) => {
+export default ({
+    onChange,
+    onChangeRememberUser,
+    onSubmit,
+    loading,
+    error,
+    segmentShow,
+    authDispatch,
+    type
+}) => {
     return (
         <div className={`login-container ${error ? 'error-login' : ''}`}>
             <Form onSubmit={onSubmit}>

@@ -1,9 +1,20 @@
 import React from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-import AvatarUpload from '../Avatar/avatarUpload'
-import Segment from '../Segment/segment'
+import AvatarUpload from '../avatar/avatarUpload'
+import Segment from '../segment/segment'
 
-export default ({ form: { loading, successMessage, error, type, authDispatch, segmentShow, onSubmit, onChangeAdminUser, adminUser }, upload }) => {
+export default ({ form, upload }) => {
+    const {
+        loading,
+        successMessage,
+        error,
+        type,
+        authDispatch,
+        segmentShow,
+        onSubmit,
+        onChangeAdminUser,
+        adminUser
+    } = form
     return (
         <div 
             className={`register-form-container ${error ? 

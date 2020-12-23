@@ -1,10 +1,28 @@
 import React from 'react'
-import Continent from './continentShow'
+import Continent from './continent'
 import ImageSlider from './imageSlider' 
 import { Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-export default ({ _id, title, price, continent, description, views, sold, imagePaths, createdAt, creatorUser, isAuth, onAddCart, quantity, onQuantityChange, error, cartSuccess, details }) => {
+export default ({
+    _id,
+    title,
+    price,
+    continent,
+    description,
+    views,
+    sold,
+    imagePaths,
+    createdAt,
+    creatorUser,
+    isAuth,
+    onAddCart,
+    quantity,
+    onQuantityChange,
+    error,
+    cartSuccess,
+    details
+}) => {
     const isInCart = details.find(detail => detail.productId === _id)
     return (
         <div className="product-details-container">   

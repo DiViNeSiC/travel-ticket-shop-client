@@ -3,8 +3,13 @@ import { Menu, Icon, Button, Dropdown } from "semantic-ui-react"
 import { Link } from 'react-router-dom'
 
 export default ({ handleLogout, loading, isAuth, pathName, avatar, isAdmin }) => {
-    const path = pathName.split('/')[2] ? pathName.split('/')[2] : pathName.split('/')[1] 
-    const showingPathName = path.length > 12 ? 'Dashboard' : path.charAt(0).toUpperCase() + path.slice(1) 
+    const path = pathName.split('/')[2] ?
+        pathName.split('/')[2] :
+        pathName.split('/')[1] 
+
+    const showingPathName = path.length > 12 ? 
+        'Dashboard' :
+        path.charAt(0).toUpperCase() + path.slice(1) 
     
     return (
         <Menu fixed="top">

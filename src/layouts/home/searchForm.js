@@ -1,5 +1,5 @@
 import React from 'react'
-import continents from '../../Constants/continents'
+import continents from '../../constants/continents'
 import { Form, Input } from 'semantic-ui-react'
 
 export default ({ onChange }) => {

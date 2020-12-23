@@ -1,16 +1,21 @@
 import React from 'react'
-import isAuth from '../Utils/Authenticate/userAuth'
 import { useHistory, Route } from 'react-router-dom'
+import isAuth from '../utils/authenticate/userAuth'
 
 export default (route) => {
     const history = useHistory()
-    const { title, isProtected, forAuth, isIndex, path } = route
-    document.title = title
+    const { isProtected, forAuth, isIndex, path } = route
+    document.title = route.title
 
-    if (isProtected && !isAuth()) history.push('/login')
-    if ((forAuth || isIndex) && isAuth()) history.push('/dashboard')
+    if (isProtected && !isAuth()) {
+        history.push('/login')
+    }
 
-    return (
+    if ((forAuth || isIndex) && isAuth()) {
+        history.push('/dashboard')
+    }
+
+    return (    
         <Route
             path={path}
             exact
